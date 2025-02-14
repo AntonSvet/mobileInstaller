@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mobileInstaller/static/css/main.fd023551.css",
-    "main.js": "/mobileInstaller/static/js/main.964a2560.js",
+    "main.css": "/mobileInstaller/static/css/main.c9591f8f.css",
+    "main.js": "/mobileInstaller/static/js/main.053acfc0.js",
     "static/media/elestaLogo.png": "/mobileInstaller/static/media/elestaLogo.baee0ca51154696d7dcb.png",
     "service-worker.js": "/mobileInstaller/service-worker.js",
     "index.html": "/mobileInstaller/index.html",
-    "main.fd023551.css.map": "/mobileInstaller/static/css/main.fd023551.css.map",
-    "main.964a2560.js.map": "/mobileInstaller/static/js/main.964a2560.js.map"
+    "main.c9591f8f.css.map": "/mobileInstaller/static/css/main.c9591f8f.css.map",
+    "main.053acfc0.js.map": "/mobileInstaller/static/js/main.053acfc0.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd023551.css",
-    "static/js/main.964a2560.js"
+    "static/css/main.c9591f8f.css",
+    "static/js/main.053acfc0.js"
   ]
 }
