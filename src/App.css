@@ -3,16 +3,24 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
+  transform-style: preserve-3d; /* Сохраняет 3D-преобразования */  
+   
+  
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
+    
   }
-} */
-
+   .parallax  {
+    animation: App-logo-spin infinite 10s linear;
+    
+  }
+} 
+ 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -30,10 +38,214 @@
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+ from {
+    transform: rotate3d(0, 1, 0, 0deg); /* Начальное положение */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate3d(0, 1, 0, 360deg); /* Конечное положение */
   }
+}
+ 
+
+.cube {
+   width: 100px;  
+  height: 100px;  
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(45deg);
+  animation: spin 7s infinite ease-in-out, levitate 3s infinite ease-in-out;
+  
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+   border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+   background-image: url('./img/elestaLogo.png');
+   background-repeat:no-repeat;
+   background-position: center center;  
+   background-color: rgb(43, 42, 42);
+}
+
+ 
+
+ 
+@keyframes spin {
+  0%, 16.67% { /* 0% - 1 секунда (вращение) */
+    transform: rotateY(0);
+  }
+  100% { /* 1 секунда - 6 секунд (задержка) */
+    transform: rotateY(360deg);
+  }
+}
+.front {
+  
+  transform: translateZ(50px);
+}
+
+.back {
+ 
+  transform: translateZ(-50px);
+}
+
+.left {
+ 
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.right {
+  
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.top {
+  
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+ 
+  transform: rotateX(-90deg) translateZ(50px);  
+}
+
+ .qr-scan-button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Градиентный фон */
+  border: none;
+  border-radius: 50px; /* Закруглённые углы */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для объёма */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 350px;
+}
+
+.qr-scan-button:hover {
+  transform: scale(1.05); /* Увеличение при наведении */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Увеличенная тень */
+}
+
+.qr-scan-button:active {
+  transform: scale(0.95); /* Эффект нажатия */
+}
+
+.qr-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.qr-text {
+  font-weight: bold;
+}
+
+.input-value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 18px;
+  
+   
+  
+  border-radius: 50px; /* Закруглённые углы */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для объёма */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  transform: scale(1.05); /* Увеличение при наведении */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Увеличенная тень */
+}
+
+.submit-button:active {
+  transform: scale(0.95); /* Эффект нажатия */
+}
+
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #4caf50, #81c784); /* Градиентный фон */
+  border: none;
+  border-radius: 50px; /* Закруглённые углы */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для объёма */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+  transform: scale(1.05); /* Увеличение при наведении */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Увеличенная тень */
+}
+
+.login-button:active {
+  transform: scale(0.95); /* Эффект нажатия */
+}
+
+.login-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.login-text {
+  font-weight: bold;
+}
+
+.input-with-button {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50px; /* Закруглённые углы */
+  overflow: hidden; /* Чтобы кнопка не выходила за границы */
+  
+  width: 400px; /* Ширина контейнера */
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.input-field {
+  flex: 1; /* Занимает всё доступное пространство */
+  padding: 15px 25px;
+  font-size: 16px;
+  border: none;
+  outline: none; /* Убираем обводку при фокусе */
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 18px;
+}
+
+.submit-button {
+  padding: 15px 14px;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Градиентный фон */
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb); /* Инвертируем градиент при наведении */
+}
+
+.submit-button:active {
+  transform: scale(0.95); /* Эффект нажатия */
 }
