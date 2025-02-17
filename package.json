@@ -4,6 +4,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.4",
+    "@mui/material": "^6.4.4",
+    "@mui/styled-engine": "^6.4.3",
     "@testing-library/react": "^16.2.0",
     "@zxing/library": "^0.21.3",
     "cra-template-pwa": "^2.0.0",

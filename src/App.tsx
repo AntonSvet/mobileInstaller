@@ -3,8 +3,10 @@
  
  
 import "./App.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/library";
+import NavigationBar from "./components/MainScreen/NavigationBar/NavigationBar";
+import HeaderBar from "./components/MainScreen/NavigationBar/HeaderBar";
 function App() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [scannedData, setScannedData] = useState<string | null>(null);
@@ -22,7 +24,7 @@ function App() {
             setScannedData(result.getText());
             /*  alert(`QR Code Scanned: ${result.getText()}`); */
             stopScanning();
-            window.location.href = result.getText();
+            // window.location.href = result.getText();
           }
           if (err && !(err instanceof Error)) {
             console.error(err);
@@ -31,14 +33,27 @@ function App() {
       } catch (error) {
         console.error("Error in QR code scanning:", error);
         alert(`Error in QR code scanning: ${error}`);
+        stopScanning();
       }
     }
   };
+  console.log("isScanning", isScanning);
 
   const stopScanning = () => {
     codeReader.reset();
     setIsScanning(false);
+    videoRef.current = null;
   };
+  useEffect(() => {
+    return () => {
+      if (codeReader) {
+        codeReader.reset();
+      }
+    };
+  }, [codeReader]);
+  if (scannedData) {
+    return <HeaderBar />;
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -60,26 +75,24 @@ function App() {
           </button>
         </div> */}
         <div className="input-with-button">
-          <input
-            inputMode="numeric"
-            type="text"
-            pattern="[0-9A-Fa-f]"
-            placeholder="Введите ID6 "
-            className="input-field"
-          />
+          <input type="text" pattern="[0-9A-Fa-f]" placeholder="Введите ID6 " className="input-field" />
           <button type="submit" className="submit-button">
             Отправить
           </button>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
           <video
             ref={videoRef}
-            style={{ paddingBottom: "22px", width: "70%", display: isScanning ? "block" : "none" }}
+            style={{
+              width: "90%",
+              /*        display: isScanning ? "block" : "none", */
+              visibility: isScanning ? "visible" : "hidden",
+            }}
           />
 
           <button onClick={isScanning ? stopScanning : startScanning} className="qr-scan-button">
-            <span className="qr-icon">&#x1F4F7;</span>
-            <span className="qr-text">{isScanning ? "Остановить сканирование" : "Сканировать QR-код"}</span>
+            <div className="qr-icon">&#x1F4F7;</div>
+            <div className="qr-text">{isScanning ? "Отмена" : "Сканировать QR-код"}</div>
           </button>
           {scannedData && <p>Сканированные данные: {scannedData}</p>}
         </div>
