@@ -19,7 +19,7 @@ const options = [
   "Коды пользователя",
 ];
 
-export default function SelectedListMenu() {
+export default function SelectedListMenu({ selectedMenu }: { selectedMenu: string }) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const open = Boolean(anchorEl);
@@ -47,7 +47,7 @@ export default function SelectedListMenu() {
           aria-expanded={open ? "true" : undefined}
           onClick={handleClickListItem}
         >
-          <ListItemText style={{ color: "white" }} primary="Юпитер-2084" secondary={options[selectedIndex]} />
+          <ListItemText style={{ color: "white" }} primary="Юпитер-2084" secondary={selectedMenu} />
         </ListItemButton>
       </List>
       <Menu
@@ -63,7 +63,7 @@ export default function SelectedListMenu() {
       >
         {options.map((option, index) => (
           <MenuItem
-            style={{ background: "black", color: "green", padding: "0px" }}
+            style={{ background: "black", color: "green", fontSize: "22px" }}
             key={option}
             disabled={index === 0}
             selected={index === selectedIndex}

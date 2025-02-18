@@ -3,10 +3,11 @@ import Menu from "./NavigationBar";
 import './NavigationBar.css'
 import DrawerMenu from "./DrawerMenu";
 import SelectedListMenu from "./SelectedListMenu";
+import SettingsMenu from "./SettingsMenu";
 
 const HeaderBar = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Определяем, мобильное ли устройство
-
+  const [selectedMenu, setSelectedMenu] = useState("Мониторинг");
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768); // Обновляем состояние при изменении размера экрана
@@ -15,18 +16,16 @@ const HeaderBar = () => {
     window.addEventListener("resize", handleResize); // Следим за изменением размера окна
     return () => window.removeEventListener("resize", handleResize); // Очистка
   }, []);
-
+  const handleMenu = (el: string) => setSelectedMenu(el);
   return (
     <header className="header">
       <div className="logo">
-   
-        <DrawerMenu />
+        <DrawerMenu selectedMenu={selectedMenu} callback={handleMenu} />
       </div>
       <div className="logo">
-        
-        <SelectedListMenu />
+        <SelectedListMenu selectedMenu={selectedMenu} />
       </div>
-      <Menu isMobile={isMobile} />
+      <SettingsMenu />
     </header>
   );
 };

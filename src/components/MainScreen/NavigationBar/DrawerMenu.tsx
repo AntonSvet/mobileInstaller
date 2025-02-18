@@ -11,7 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
- function DrawerMenu() {
+function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback: (el: string) => void }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -19,7 +19,17 @@ import MailIcon from "@mui/icons-material/Mail";
   };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box
+      sx={{
+        paddingTop: "15px",
+        height: "100vh",
+        color: "white",
+        width: 190,
+        background: "linear-gradient(135deg, #242222, #de3615)",
+      }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+    >
       <List>
         {[
           "Мониторинг",
@@ -35,9 +45,9 @@ import MailIcon from "@mui/icons-material/Mail";
           "Коды пользователя",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton style={{ background: text === selectedMenu ? "#6c5858" : "" }}>
               {/*  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-              <ListItemText primary={text} />
+              <span onClick={() => callback(text)}>{text}</span>
             </ListItemButton>
           </ListItem>
         ))}
