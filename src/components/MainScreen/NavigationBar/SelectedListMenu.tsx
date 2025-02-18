@@ -38,16 +38,18 @@ export default function SelectedListMenu({ selectedMenu }: { selectedMenu: strin
 
   return (
     <div>
-      <List component="nav" style={{ padding: "0px", color: "white" }} aria-label="Device settings">
+      <List component="nav" style={{ padding: "0px" }} aria-label="Device settings">
         <ListItemButton
           id="lock-button"
-          style={{ color: "white" }}
           aria-haspopup="listbox"
           aria-controls="lock-menu"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClickListItem}
         >
-          <ListItemText style={{ color: "white" }} primary="Юпитер-2084" secondary={selectedMenu} />
+          <ListItemText
+            primary={<p style={{ fontSize: "19px", margin: "0px", color: "#4abd4a" }}>Юпитер-2084</p>}
+            secondary={<p style={{ fontSize: "17px", margin: "0px", color: "white" }}>{selectedMenu}</p>}
+          />
         </ListItemButton>
       </List>
       <Menu

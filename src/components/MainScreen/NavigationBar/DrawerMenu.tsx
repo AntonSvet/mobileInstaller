@@ -24,7 +24,7 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
         paddingTop: "15px",
         height: "100vh",
         color: "white",
-        width: 190,
+        width: "100%",
         background: "linear-gradient(135deg, #242222, #de3615)",
       }}
       role="presentation"
@@ -44,12 +44,15 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
           "LAN",
           "Коды пользователя",
         ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton style={{ background: text === selectedMenu ? "#6c5858" : "" }}>
-              {/*  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-              <span onClick={() => callback(text)}>{text}</span>
-            </ListItemButton>
-          </ListItem>
+          <>
+            <ListItem key={text} disablePadding>
+              <ListItemButton style={{ background: text === selectedMenu ? "#6c5858" : "", fontSize: "30px" }}>
+                {/*  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+                <span onClick={() => callback(text)}>{text}</span>
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+          </>
         ))}
       </List>
     </Box>
