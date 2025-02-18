@@ -5,13 +5,14 @@
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/library";
-import NavigationBar from "./components/MainScreen/NavigationBar/NavigationBar";
-import HeaderBar from "./components/MainScreen/NavigationBar/HeaderBar";
+ 
+import MainScreen from "./components/MainScreen/MainScreen";
 function App() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [scannedData, setScannedData] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState<boolean>(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const codeReader = new BrowserMultiFormatReader();
 
   const startScanning = async () => {
@@ -51,8 +52,8 @@ function App() {
       }
     };
   }, [codeReader]);
-  if (scannedData) {
-    return <HeaderBar />;
+  if (!scannedData) {
+    return <MainScreen />;
   }
   return (
     <div className="App">

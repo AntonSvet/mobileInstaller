@@ -8,12 +8,19 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
+ 
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-
+import { useState } from "react";
+import AboutAppModal from "./AboutAppModal";
+import Download from "@mui/icons-material/DownloadTwoTone";
+import Cloud from "@mui/icons-material/CloudUploadTwoTone";
+import Restart from "@mui/icons-material/RestartAltRounded";
+import Display from "@mui/icons-material/DisplaySettingsTwoTone";
+import LogoutIcon from "@mui/icons-material/LogoutTwoTone";
 export default function SettingsMenu() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [openAppModal, setOpenAppModal] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -21,10 +28,12 @@ export default function SettingsMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const callback = (x: boolean) => setOpenAppModal(x);
+  console.log("openAppModal", openAppModal);
+
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        
         <Tooltip title=" settings">
           <IconButton
             onClick={handleClick}
@@ -76,20 +85,29 @@ export default function SettingsMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> Сохранить
+          <Cloud sx={{ paddingRight: "5px" }} fontSize="large" /> Сохранить
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Avatar /> Загрузить
+          <Download sx={{ paddingRight: "5px" }} fontSize="large" /> Загрузить
         </MenuItem>
         <Divider />
-        
+        <MenuItem onClick={handleClose}>
+          <Restart sx={{ paddingRight: "5px" }} fontSize="large" /> Перезапуск
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={() => callback(true)}>
+          <Display sx={{ paddingRight: "5px" }} fontSize="large" /> О программе
+        </MenuItem>
+        <Divider />
+
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <LogoutIcon sx={{ paddingRight: "5px" }} fontSize="large" />
           </ListItemIcon>
           Выход
         </MenuItem>
       </Menu>
+      {openAppModal && <AboutAppModal open={openAppModal} callback={callback} />}
     </React.Fragment>
   );
 }

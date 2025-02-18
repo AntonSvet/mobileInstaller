@@ -6,10 +6,17 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 
 const options = [
-  "Show some love to MUI",
-  "Show all notification content",
-  "Hide sensitive notification content",
-  "Hide all notification content",
+  "Мониторинг",
+  "Общие",
+  "Расширители",
+  "Радиоканал",
+  "Зоны",
+  "Выходы управления",
+  "Параметры связи",
+  "GPRS",
+  "SMS",
+  "LAN",
+  "Коды пользователя",
 ];
 
 export default function SelectedListMenu() {
@@ -31,19 +38,20 @@ export default function SelectedListMenu() {
 
   return (
     <div>
-      <List component="nav" aria-label="Device settings"  >
+      <List component="nav" style={{ padding: "0px", color: "white" }} aria-label="Device settings">
         <ListItemButton
           id="lock-button"
+          style={{ color: "white" }}
           aria-haspopup="listbox"
           aria-controls="lock-menu"
-          aria-label="when device is locked"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClickListItem}
         >
-          <ListItemText primary="Меню" secondary={options[selectedIndex]} />
+          <ListItemText style={{ color: "white" }} primary="Юпитер-2084" secondary={options[selectedIndex]} />
         </ListItemButton>
       </List>
       <Menu
+        style={{ padding: "0px" }}
         id="lock-menu"
         anchorEl={anchorEl}
         open={open}
@@ -55,7 +63,7 @@ export default function SelectedListMenu() {
       >
         {options.map((option, index) => (
           <MenuItem
-            color="white"
+            style={{ background: "black", color: "green", padding: "0px" }}
             key={option}
             disabled={index === 0}
             selected={index === selectedIndex}
