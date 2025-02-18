@@ -52,7 +52,7 @@ function App() {
       }
     };
   }, [codeReader]);
-  if (!scannedData) {
+  if (scannedData) {
     return <MainScreen />;
   }
   return (
