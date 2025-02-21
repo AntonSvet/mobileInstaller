@@ -10,15 +10,13 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "70%",
-  bgcolor: "background.paper",
+  bgcolor: "var(--background-header)",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
 
-export default function AboutAppModal({open,callback}:{open:boolean, callback:(x:boolean) => void}) {
-  
- 
+export default function AboutAppModal({ open, callback }: { open: boolean; callback: (x: boolean) => void }) {
   const handleClose = () => callback(false);
 
   return (
@@ -38,11 +36,10 @@ export default function AboutAppModal({open,callback}:{open:boolean, callback:(x
             <div>
               2025 ©
               <a href="http://elesta.ru" target="_blank" rel="noreferrer">
-                    ООО Элеста
+                ООО Элеста
               </a>
             </div>
           </div>
-          
         </Box>
       </Modal>
     </div>

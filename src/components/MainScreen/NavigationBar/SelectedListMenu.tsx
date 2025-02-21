@@ -45,6 +45,7 @@ export default function SelectedListMenu({ selectedMenu }: { selectedMenu: strin
           aria-controls="lock-menu"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClickListItem}
+          sx={{ padding: "0px" }}
         >
           <ListItemText
             primary={<p style={{ fontSize: "19px", margin: "0px", color: "#4abd4a" }}>Юпитер-2084</p>}
