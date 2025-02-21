@@ -23,9 +23,9 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
       sx={{
         paddingTop: "15px",
         height: "100vh",
-        color: "white",
+        color: "var( --text-color)",
         width: "100%",
-        background: "linear-gradient(135deg, #242222, #de3615)",
+        background: "var(--background-drawer-menu)",
       }}
       role="presentation"
       onClick={toggleDrawer(false)}

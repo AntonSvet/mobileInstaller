@@ -6,12 +6,12 @@ import MainPage from "./Pages/MainPage";
 
 const MainScreen = () => {
  
-
+  const [selectedMenu, setSelectedMenu] = useState("Мониторинг");
+  const handleMenu = (el: string) => setSelectedMenu(el);
   return (
     <div className="main_screen">
-      <HeaderBar />
-      <MainPage />
-      
+      <HeaderBar selectedMenu={selectedMenu} callback={handleMenu} />
+      <MainPage selectedMenu={selectedMenu} />
     </div>
   );
 };

@@ -7,13 +7,41 @@ import { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/library";
  
 import MainScreen from "./components/MainScreen/MainScreen";
+import { createTheme } from "@mui/material/styles";
+import { orange, blue } from "@mui/material/colors";
+import { useTheme } from "./hooks/useTheme";
+
+declare module "@mui/material/styles" {
+  interface Theme {
+    status: {
+      danger: string;
+    };
+  }
+
+  interface ThemeOptions {
+    status?: {
+      danger?: string;
+    };
+  }
+}
+const outerTheme = createTheme({
+  palette: {
+    primary: {
+      main: blue[500],
+    },
+  },
+});
 function App() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [scannedData, setScannedData] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState<boolean>(false);
-
+  const { theme } = useTheme();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const codeReader = new BrowserMultiFormatReader();
+  useEffect(() => {
+    // Применяем тему к <html>
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const startScanning = async () => {
     setIsScanning(true);
@@ -55,6 +83,7 @@ function App() {
   if (scannedData) {
     return <MainScreen />;
   }
+
   return (
     <div className="App">
       <header className="App-header">

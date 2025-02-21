@@ -48,7 +48,7 @@ export default function SelectedListMenu({ selectedMenu }: { selectedMenu: strin
         >
           <ListItemText
             primary={<p style={{ fontSize: "19px", margin: "0px", color: "#4abd4a" }}>Юпитер-2084</p>}
-            secondary={<p style={{ fontSize: "17px", margin: "0px", color: "white" }}>{selectedMenu}</p>}
+            secondary={<p style={{ fontSize: "17px", margin: "0px", color: "var(--text-color)" }}>{selectedMenu}</p>}
           />
         </ListItemButton>
       </List>

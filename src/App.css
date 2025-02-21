@@ -22,14 +22,14 @@
 } 
  
 .App-header {
-  background-color: #282c34;
+ /*  background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
-  color: white;
+ /*  color: white; */
     gap: 1rem;
   padding: 1rem;
 }
@@ -212,13 +212,13 @@
   display: flex;
   align-items: center;
   background: #fff;
-  border: 2px solid #ccc;
+   
   border-radius: 50px; /* Закруглённые углы */
   overflow: hidden; /* Чтобы кнопка не выходила за границы */
     max-width: 500px; /* Ограничение ширины на ПК */
    width: 100%; /* Занимает всю доступную ширину */
   gap: 8px; /* Расстояние между input и кнопкой */
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 

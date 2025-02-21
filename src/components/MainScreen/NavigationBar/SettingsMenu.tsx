@@ -18,6 +18,7 @@ import Cloud from "@mui/icons-material/CloudUploadTwoTone";
 import Restart from "@mui/icons-material/RestartAltRounded";
 import Display from "@mui/icons-material/DisplaySettingsTwoTone";
 import LogoutIcon from "@mui/icons-material/LogoutTwoTone";
+import ThemeButton from "../../../common/ThemeButton/ThemeButton";
 export default function SettingsMenu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openAppModal, setOpenAppModal] = useState(false);
@@ -52,11 +53,13 @@ export default function SettingsMenu() {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
+        //onClick={handleClose}
         slotProps={{
           paper: {
             elevation: 0,
             sx: {
+              bgcolor: "var(--background-color-setting-menu)",
+              color: "var(--text-color)",
               overflow: "visible",
               filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
               mt: 1.5,
@@ -74,7 +77,7 @@ export default function SettingsMenu() {
                 right: 14,
                 width: 10,
                 height: 10,
-                bgcolor: "background.paper",
+                bgcolor: "var(--background-color)",
                 transform: "translateY(-50%) rotate(45deg)",
                 zIndex: 0,
               },
@@ -99,7 +102,8 @@ export default function SettingsMenu() {
           <Display sx={{ paddingRight: "5px" }} fontSize="large" /> О программе
         </MenuItem>
         <Divider />
-
+        <ThemeButton />
+        <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <LogoutIcon sx={{ paddingRight: "5px" }} fontSize="large" />
