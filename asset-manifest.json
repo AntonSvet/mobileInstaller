@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/mobileInstaller/static/css/main.158295ef.css",
-    "main.js": "/mobileInstaller/static/js/main.8c70aad9.js",
+    "main.css": "/mobileInstaller/static/css/main.bad3d81c.css",
+    "main.js": "/mobileInstaller/static/js/main.76fe8b37.js",
     "static/media/under_construction_girl.png": "/mobileInstaller/static/media/under_construction_girl.eea8e27af6393589b9f3.png",
     "static/media/elestaLogo.png": "/mobileInstaller/static/media/elestaLogo.baee0ca51154696d7dcb.png",
+    "static/media/s_fonom_2084.png": "/mobileInstaller/static/media/s_fonom_2084.792e92fbd917a962f499.png",
     "service-worker.js": "/mobileInstaller/service-worker.js",
     "static/media/5130.png": "/mobileInstaller/static/media/5130.63acd710e15592940274.png",
     "index.html": "/mobileInstaller/index.html",
-    "main.158295ef.css.map": "/mobileInstaller/static/css/main.158295ef.css.map",
-    "main.8c70aad9.js.map": "/mobileInstaller/static/js/main.8c70aad9.js.map"
+    "main.bad3d81c.css.map": "/mobileInstaller/static/css/main.bad3d81c.css.map",
+    "main.76fe8b37.js.map": "/mobileInstaller/static/js/main.76fe8b37.js.map"
   },
   "entrypoints": [
-    "static/css/main.158295ef.css",
-    "static/js/main.8c70aad9.js"
+    "static/css/main.bad3d81c.css",
+    "static/js/main.76fe8b37.js"
   ]
 }
