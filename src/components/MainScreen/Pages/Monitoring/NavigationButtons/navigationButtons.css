@@ -12,7 +12,7 @@
 .nav-button {
   border: none;
   background: none;
-   padding: 1vw 2vw;
+   padding: 1vw 1vw;
   flex: 1; 
   color: var(--text-color);
   cursor: pointer;
@@ -24,6 +24,6 @@
   background-color: #9c9c9d; 
   color: white;
   border-radius: 35px;  
-   padding: 1vw 2vw;
-   font-size: clamp(23px, 4vw, 26px);
+   padding: 1vw 1vw;
+   font-size: clamp(20px, 2vw, 26px);
 }

@@ -1,0 +1,56 @@
+/* Основной контейнер для кнопки */
+.floating-button {
+  position: fixed; /* Фиксированное позиционирование */
+  bottom: 20px; /* Отступ от нижнего края */
+  right: 20px; /* Отступ от правого края */
+  width: 10vw;
+  height: 10vw;
+  max-width: 80px; /* Максимальный размер */
+  max-height: 80px; /* Максимальный размер */
+  border-radius: 50%; /* Делаем кнопку круглой */
+  background-color: #322fec; /* Цвет фона */
+  border: none; /* Убираем границу */
+  color: white; /* Цвет текста/иконки */
+  font-size: 24px; /* Размер текста/иконки */
+  cursor: pointer; /* Курсор в виде указателя */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для эффекта "плавающей" кнопки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Стили для знака плюса */
+.plus-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.plus-icon::before,
+.plus-icon::after {
+  content: '';
+  position: absolute;
+  background-color: white; /* Цвет плюса */
+}
+
+.plus-icon::before {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.plus-icon::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Эффект при наведении */
+.floating-button:hover {
+  background-color: #3700b3; /* Изменение цвета при наведении */
+}

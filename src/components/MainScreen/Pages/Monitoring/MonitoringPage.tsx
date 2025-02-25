@@ -29,6 +29,7 @@ import NavigationButtons from "./NavigationButtons/NavigationButtons";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 import { Height } from "@mui/icons-material";
+import FloatingButton from "./FloatingButton/FloatingButton";
 const classes = {
   positionSettings: {
     display: "flex",
@@ -65,7 +66,8 @@ const MonitoringPage = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-
+          position: "fixed",
+          zIndex: 1000,
           width: "100%",
           background: " var(--background-header)",
         }}
@@ -128,19 +130,7 @@ const MonitoringPage = () => {
         </div>
 
         <NavigationButtons />
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-
-          padding: "0px 5px",
-          height: "100%",
-        }}
-      >
-        <FormControl sx={{ minWidth: 120 }} size="medium">
+        <FormControl sx={{ minWidth: 120, display: "flex", alignItems: "center" }} size="medium">
           <NativeSelect
             sx={{ fontSize: "clamp(23px, 4vw, 26px)" }}
             defaultValue={10}
@@ -154,6 +144,18 @@ const MonitoringPage = () => {
             <option value={30}>-----</option>
           </NativeSelect>
         </FormControl>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+
+          padding: "230px 5px 0px 0px",
+          height: "100%",
+        }}
+      >
         <Card style={classes.cardSettings} elevation={24}>
           <CardActionArea
             onClick={() => setSelectedCard(1)}
@@ -431,9 +433,7 @@ const MonitoringPage = () => {
             </div>
           </CardActionArea>
         </Card>
-        <Fab sx={{ position: "absolute" }} color="primary" aria-label="add">
-          <AddIcon />
-        </Fab>
+        <FloatingButton />
       </div>
     </>
   );
