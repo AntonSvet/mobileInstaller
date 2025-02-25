@@ -30,7 +30,6 @@ export default function SettingsMenu() {
     setAnchorEl(null);
   };
   const callback = (x: boolean) => setOpenAppModal(x);
-  console.log("openAppModal", openAppModal);
 
   return (
     <React.Fragment>
@@ -38,7 +37,7 @@ export default function SettingsMenu() {
         <Tooltip title=" settings">
           <IconButton
             onClick={handleClick}
-            size="small"
+            size="large"
             sx={{ ml: 2 }}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"

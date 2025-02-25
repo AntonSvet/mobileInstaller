@@ -37,237 +37,239 @@ function handleSettingsChange() {console.log("Click");
 }
 const GprsPage = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
-        <List
-          sx={{
-            paddingBottom: "0px",
-          }}
-          component="ul"
-          aria-label="mailbox folders"
-          subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
-        >
-          <InputCustomized
-            id={"rtsp_url"}
-            label={"IMEI GSM модема"}
-            value={"envControlRtspUrl"}
-            storeID={"envControlRtspUrl"}
-            handleSettingsChange={handleSettingsChange}
-          />
-          <ListItem>
-            <ListItemText primary="Работа прибора по GPRS" />
-            <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
-          </ListItem>
-          <Divider />
-        </List>
-      </Paper>
+    <div style={{ width: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "0px 10px" }}>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+        <Paper style={classes.mainSettings} elevation={24}>
+          <List
+            sx={{
+              paddingBottom: "0px",
+            }}
+            component="ul"
+            aria-label="mailbox folders"
+            subheader={<ListSubheader style={classes.settingsTitle}>Подключение по GPRS:</ListSubheader>}
+          >
+            <InputCustomized
+              id={"rtsp_url"}
+              label={"IMEI GSM модема"}
+              value={"envControlRtspUrl"}
+              storeID={"envControlRtspUrl"}
+              handleSettingsChange={handleSettingsChange}
+            />
+            <ListItem>
+              <ListItemText primary="Работа прибора по GPRS" />
+              <CustomizedSwitches handleSettingsChange={handleSettingsChange} id={"envControlEnabled"} option={true} />
+            </ListItem>
+            <Divider />
+          </List>
+        </Paper>
+      </div>
     </div>
   );
 };

@@ -66,7 +66,6 @@ function App() {
       }
     }
   };
-  console.log("isScanning", isScanning);
 
   const stopScanning = () => {
     codeReader.reset();

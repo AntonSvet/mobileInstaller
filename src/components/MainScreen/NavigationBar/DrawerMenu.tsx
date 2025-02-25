@@ -32,10 +32,9 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
     >
       <List>
         {[
-          "Мониторинг",
+          "Устройства",
           "Общие",
-          "Расширители",
-          "Радиоканал",
+
           "Зоны",
           "Выходы управления",
           "Параметры связи",
@@ -44,15 +43,14 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
           "LAN",
           "Коды пользователя",
         ].map((text, index) => (
-          <>
-            <ListItem key={text} disablePadding>
+          <div key={index}>
+            <ListItem disablePadding>
               <ListItemButton style={{ background: text === selectedMenu ? "#6c5858" : "", fontSize: "30px" }}>
-                {/*  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                 <span onClick={() => callback(text)}>{text}</span>
               </ListItemButton>
             </ListItem>
             <Divider />
-          </>
+          </div>
         ))}
       </List>
     </Box>
@@ -60,7 +58,9 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>Меню</Button>
+      <span style={{ color: "#5b5e5b", fontSize: "clamp(25px, 4vw, 24px)" }} onClick={toggleDrawer(true)}>
+        Меню
+      </span>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>

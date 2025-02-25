@@ -16,9 +16,9 @@ const MainPage = ({ selectedMenu }: { selectedMenu: string }) => {
   }, []);
 
   return (
-    <article className="main">
+    <main className="main">
       <PageRoute route={selectedMenu} />
-    </article>
+    </main>
   );
 };
 

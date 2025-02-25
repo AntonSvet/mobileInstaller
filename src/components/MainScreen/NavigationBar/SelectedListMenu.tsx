@@ -48,8 +48,9 @@ export default function SelectedListMenu({ selectedMenu }: { selectedMenu: strin
           sx={{ padding: "0px" }}
         >
           <ListItemText
-            primary={<p style={{ fontSize: "19px", margin: "0px", color: "#4abd4a" }}>Юпитер-2084</p>}
-            secondary={<p style={{ fontSize: "17px", margin: "0px", color: "var(--text-color)" }}>{selectedMenu}</p>}
+            primary={
+              <span style={{ fontSize: "clamp(25px, 4vw, 24px)", margin: "0px", color: "#5b5e5b" }}>Юпитер-2084</span>
+            }
           />
         </ListItemButton>
       </List>
