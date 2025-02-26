@@ -1,3 +1,4 @@
+import "./footer.css";
 const Footer = () => {
   return (
     <footer className="main_footer">
@@ -8,9 +9,9 @@ const Footer = () => {
           Элеста{" "}
         </a>
       </div>
-      <div>
+      {/*  <div>
         Web-приложение "Инсталлятор" версия <span id="versionIndex">1.0.0</span>
-      </div>
+      </div> */}
     </footer>
   );
 };

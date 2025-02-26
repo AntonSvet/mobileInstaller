@@ -44,7 +44,7 @@ const classes = {
     maxWidth: "588px",
     minWidth: "280px",
     maxHeight: "160px",
-    minHeight: "130px",
+    minheight: "134px",
     marginTop: "10px",
 
     background: "var(--background-device-card)",
@@ -180,7 +180,7 @@ const MonitoringPage = () => {
           flexDirection: "column",
           alignItems: "center",
           marginTop: `${contentMargin + 10}px`,
-          marginBottom: "20px",
+
           padding: "0px 5px",
           height: "calc(100vh - 80px)" /* Высота контента, чтобы был скролл */,
         }}
@@ -200,7 +200,7 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "8px", background: "white" }}></div>
+            <div style={{ height: "134px", width: "8px", background: "white" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <img width={"21%"} src={device5130} alt="logo2084" />
@@ -260,7 +260,7 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "8px", background: "white" }}></div>
+            <div style={{ height: "134px", width: "8px", background: "white" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <img width={"21%"} src={device5830} alt="logo2084" />
@@ -320,7 +320,7 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "10px", background: "orange" }}></div>
+            <div style={{ height: "134px", width: "10px", background: "orange" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <img width={"21%"} src={device5230} alt="logo2084" />
@@ -368,10 +368,10 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "10px", background: "red" }}></div>
+            <div style={{ height: "134px", width: "10px", background: "red" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img style={{ padding: "15px 12px 0px 8px" }} width={"16%"} src={device6270} alt="logo2084" />
+                <img style={{ padding: "6px 25px 0px 20px" }} width={"12%"} src={device6270} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Радио клавиатура, рзд 3</span>
@@ -387,7 +387,7 @@ const MonitoringPage = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ display: "flex", alignItems: "flex-end", margin: "10px 0px 11px " }}>
+              <div style={{ display: "flex", alignItems: "flex-end", margin: "5px 0px 5px " }}>
                 <div style={{ color: "var( --text-color)" }}>
                   <span style={{ fontSize: "17px", marginLeft: "2px" }}>Р/У Кл Ю-6270 №4</span>
                 </div>
@@ -417,7 +417,7 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "8px", background: "white" }}></div>
+            <div style={{ height: "134px", width: "8px", background: "white" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <img width={"21%"} src={device5830} alt="logo2084" />

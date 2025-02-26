@@ -12,6 +12,7 @@ const MainScreen = () => {
     <div className="main_screen">
       <HeaderBar selectedMenu={selectedMenu} callback={handleMenu} />
       <MainPage selectedMenu={selectedMenu} />
+      <Footer />
     </div>
   );
 };
