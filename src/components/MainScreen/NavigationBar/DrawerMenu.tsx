@@ -45,8 +45,10 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
         ].map((text, index) => (
           <div key={index}>
             <ListItem disablePadding>
-              <ListItemButton style={{ background: text === selectedMenu ? "#6c5858" : "", fontSize: "30px" }}>
-                <span onClick={() => callback(text)}>{text}</span>
+              <ListItemButton style={{ background: text === selectedMenu ? "#c4c8da" : "" }}>
+                <span style={{ fontSize: "clamp(26px, 4vw, 30px)" }} onClick={() => callback(text)}>
+                  {text}
+                </span>
               </ListItemButton>
             </ListItem>
             <Divider />
@@ -58,7 +60,10 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
 
   return (
     <div>
-      <span style={{ color: "#5b5e5b", fontSize: "clamp(25px, 4vw, 24px)" }} onClick={toggleDrawer(true)}>
+      <span
+        style={{ color: "var(--header-text-color", fontSize: "clamp(25px, 4vw, 24px)" }}
+        onClick={toggleDrawer(true)}
+      >
         Меню
       </span>
       <Drawer open={open} onClose={toggleDrawer(false)}>

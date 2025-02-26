@@ -23,7 +23,9 @@ const HeaderBar = ({ selectedMenu, callback }: { selectedMenu: string; callback:
         <DrawerMenu selectedMenu={selectedMenu} callback={callback} />
       </div>
       <div className="logo">
-        <span style={{ fontSize: "clamp(25px, 4vw, 24px)", margin: "0px", color: "#5b5e5b" }}>Юпитер-2084</span>
+        <span style={{ fontSize: "clamp(25px, 4vw, 24px)", margin: "0px", color: "var(--header-text-color" }}>
+          Юпитер-2084
+        </span>
       </div>
       <SettingsMenu />
     </header>
