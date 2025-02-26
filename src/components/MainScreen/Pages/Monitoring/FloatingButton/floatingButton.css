@@ -1,19 +1,19 @@
 /* Основной контейнер для кнопки */
 .floating-button {
   position: fixed; /* Фиксированное позиционирование */
-  bottom: 35px; /* Отступ от нижнего края */
+  bottom: 45px; /* Отступ от нижнего края */
   right: 45px; /* Отступ от правого края */
-  width: 14vw;
-  height: 14vw;
+  width: 19vw;
+  height: 19vw;
   max-width: 80px; /* Максимальный размер */
   max-height: 80px; /* Максимальный размер */
   border-radius: 50%; /* Делаем кнопку круглой */
   background-color: #423ffb; /* Цвет фона */
   border: none; /* Убираем границу */
   color: white; /* Цвет текста/иконки */
-  font-size: 24px; /* Размер текста/иконки */
+  font-size: 26px; /* Размер текста/иконки */
   cursor: pointer; /* Курсор в виде указателя */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для эффекта "плавающей" кнопки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Тень для эффекта "плавающей" кнопки */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +23,8 @@
 /* Стили для знака плюса */
 .plus-icon {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 35px;
+  height: 35px;
 }
 
 .plus-icon::before,
@@ -52,7 +52,7 @@
 
 /* Эффект при наведении */
 .floating-button:hover {
-  background-color: #3700b3; /* Изменение цвета при наведении */
+  background-color: #3146cf; /* Изменение цвета при наведении */
 }
 @keyframes buttonClick {
   0% {

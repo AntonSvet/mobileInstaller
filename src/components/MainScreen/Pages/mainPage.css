@@ -4,7 +4,7 @@
   align-items: center;
   padding: 56px  0px 0px  0px;
  /*  background-color: #545050;
-  color: #fff; */
-  min-height:  100vh  
-  
+  color: #fff; 
+  min-height:  100vh  */
+  min-height:calc(100vh - 97px);
 }

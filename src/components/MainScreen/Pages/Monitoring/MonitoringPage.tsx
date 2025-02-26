@@ -43,7 +43,7 @@ const classes = {
 
     maxWidth: "588px",
     minWidth: "280px",
-    maxHeight: "160px",
+    maxHeight: "165px",
     minheight: "134px",
     marginTop: "10px",
 
@@ -59,6 +59,49 @@ const classes = {
     padding: "10px 20px" /* Отступы внутри кнопки */,
   },
 };
+const radioDevice = [
+  {
+    id: 0,
+    name: "МК-5130",
+    number: 1,
+    zone: [3, null],
+    section: [1, 2],
+    statusZone: ["green", null],
+    stutusDevice: "white",
+    image: device5130,
+  },
+  {
+    id: 1,
+    name: "АК Ю-5830",
+    number: 2,
+    zone: [4, 5],
+    section: [2, 2],
+    statusZone: ["grey", "grey"],
+    stutusDevice: "white",
+    image: device5830,
+  },
+  {
+    id: 2,
+    name: "ИК Ю-5230",
+    number: 3,
+    zone: [6],
+    section: [2],
+    statusZone: ["white", null],
+    stutusDevice: "orange",
+    image: device5230,
+  },
+  {
+    id: 3,
+    name: "АК Ю-5830",
+    number: 4,
+    zone: [7, 8],
+    section: [2, 2],
+    statusZone: ["grey", "grey"],
+    stutusDevice: "white",
+    image: device5830,
+  },
+];
+
 const MonitoringPage = () => {
   const [selectedCard, setSelectedCard] = useState(0);
   const [value, setValue] = useState(0);
@@ -182,177 +225,104 @@ const MonitoringPage = () => {
           marginTop: `${contentMargin + 10}px`,
 
           padding: "0px 5px",
-          height: "calc(100vh - 80px)" /* Высота контента, чтобы был скролл */,
+          // height: "calc(100vh - 80px)" /* Высота контента, чтобы был скролл */,
         }}
       >
-        <Card style={classes.cardSettings} elevation={24}>
-          <CardActionArea
-            onClick={() => setSelectedCard(1)}
-            data-active={selectedCard === 1 ? "" : undefined}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              "&[data-active]": {
-                backgroundColor: "action.selected",
-                "&:hover": {
-                  backgroundColor: "action.selectedHover",
-                },
-              },
-            }}
-          >
-            <div style={{ height: "134px", width: "8px", background: "white" }}></div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"21%"} src={device5130} alt="logo2084" />
-                <div>
+        {radioDevice.map((el, index) => {
+          return (
+            <Card key={index} style={classes.cardSettings} elevation={24}>
+              <CardActionArea
+                onClick={() => setSelectedCard(1)}
+                data-active={selectedCard === 1 ? "" : undefined}
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  "&[data-active]": {
+                    backgroundColor: "action.selected",
+                    "&:hover": {
+                      backgroundColor: "action.selectedHover",
+                    },
+                  },
+                }}
+              >
+                <div style={{ height: "134px", width: "8px", background: `${el.stutusDevice}` }}></div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Беспровод. зона 3, рзд. 1</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "green",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
+                    <img width={"21%"} src={el.image} alt="logo2084" />
+                    <div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <span style={{ color: "var( --text-color)" }}>
+                            Беспровод. зона {el.zone[0]}, рзд. {el.section[0]}
+                          </span>
+                        </div>
+                        <div
+                          style={{
+                            width: "15px",
+                            height: "15px",
+                            background: `${el.statusZone[0]}`,
+                            borderRadius: "20px",
+                            marginLeft: "10px",
+                          }}
+                        ></div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          {el.zone[1] === null ? (
+                            <span style={{ color: "#c0c0c0" }}>Дополн. зона {el.zone[1]} </span>
+                          ) : el.zone[1] ? (
+                            <span>
+                              Дополн. зона {el.zone[1]},рзд {el.section[1]}
+                            </span>
+                          ) : (
+                            <span></span>
+                          )}
+                        </div>
+                        {el.statusZone[1] && (
+                          <div
+                            style={{
+                              width: "15px",
+                              height: "15px",
+                              background: `${el.statusZone[1]}`,
+                              borderRadius: "20px",
+                              marginLeft: "10px",
+                            }}
+                          ></div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "#c0c0c0" }}>Дополн. зона </span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "white",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px" }}>
-                <div style={{ color: "var( --text-color)" }}>
-                  <span style={{ fontSize: "17px" }}>Р/У МК Ю-5130 №1</span>
-                </div>
-                <div style={{ margin: "0px 3px 0px 5px" }}>
-                  <SignalCellular2BarIcon />
-                </div>
-                <div style={{ margin: "0px 3px 0px 3px" }}>
-                  <Battery20SharpIcon />
-                </div>
-              </div>
-            </div>
-          </CardActionArea>
-        </Card>
-        <Card style={classes.cardSettings} elevation={24}>
-          <CardActionArea
-            onClick={() => setSelectedCard(1)}
-            data-active={selectedCard === 1 ? "" : undefined}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              "&[data-active]": {
-                backgroundColor: "action.selected",
-                "&:hover": {
-                  backgroundColor: "action.selectedHover",
-                },
-              },
-            }}
-          >
-            <div style={{ height: "134px", width: "8px", background: "white" }}></div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"21%"} src={device5830} alt="logo2084" />
-                <div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Беспровод. зона 4, рзд. 2</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "grey",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Доп. зона 5, рзд. 2</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "grey",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
+                  <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px" }}>
+                    <div style={{ color: "var( --text-color)" }}>
+                      <span style={{ fontSize: "17px" }}>
+                        Р/У {el.name} №{el.number}
+                      </span>
+                    </div>
+                    <div style={{ margin: "0px 3px 0px 5px" }}>
+                      <SignalCellular2BarIcon />
+                    </div>
+                    <div style={{ margin: "0px 3px 0px 3px" }}>
+                      <Battery20SharpIcon />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px" }}>
-                <div style={{ color: "var( --text-color)" }}>
-                  <span style={{ fontSize: "17px" }}>Р/У АК Ю-5830 №2</span>
-                </div>
-                <div style={{ margin: "0px 3px 0px 5px" }}>
-                  <SignalCellular2BarIcon />
-                </div>
-                <div style={{ margin: "0px 3px 0px 3px" }}>
-                  <Battery20SharpIcon />
-                </div>
-              </div>
-            </div>
-          </CardActionArea>
-        </Card>
-        <Card style={classes.cardSettings} elevation={24}>
-          <CardActionArea
-            onClick={() => setSelectedCard(1)}
-            data-active={selectedCard === 1 ? "" : undefined}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              "&[data-active]": {
-                backgroundColor: "action.selected",
-                "&:hover": {
-                  backgroundColor: "action.selectedHover",
-                },
-              },
-            }}
-          >
-            <div style={{ height: "134px", width: "10px", background: "orange" }}></div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"21%"} src={device5230} alt="logo2084" />
-                <div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Беспровод. зона 6, рзд. 2</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "white",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px" }}>
-                <div style={{ color: "var( --text-color)" }}>
-                  <span style={{ fontSize: "17px", marginLeft: "2px" }}>Р/У ИК Ю-5230 №3</span>
-                </div>
-                <div style={{ margin: "0px 3px 0px 5px" }}>
-                  <SignalCellular2BarIcon />
-                </div>
-                <div style={{ margin: "0px 3px 0px 3px" }}>
-                  <Battery20SharpIcon />
-                </div>
-              </div>
-            </div>
-          </CardActionArea>
-        </Card>
+              </CardActionArea>
+            </Card>
+          );
+        })}
+
         <Card style={classes.cardSettings} elevation={24}>
           <CardActionArea
             onClick={() => setSelectedCard(1)}
@@ -402,66 +372,7 @@ const MonitoringPage = () => {
             </div>
           </CardActionArea>
         </Card>
-        <Card style={classes.cardSettings} elevation={24}>
-          <CardActionArea
-            onClick={() => setSelectedCard(1)}
-            data-active={selectedCard === 1 ? "" : undefined}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              "&[data-active]": {
-                backgroundColor: "action.selected",
-                "&:hover": {
-                  backgroundColor: "action.selectedHover",
-                },
-              },
-            }}
-          >
-            <div style={{ height: "134px", width: "8px", background: "white" }}></div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"21%"} src={device5830} alt="logo2084" />
-                <div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Беспровод. зона 7, рзд. 2</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "grey",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Доп. зона 8, рзд. 2</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "grey",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px" }}>
-                <div style={{ color: "var( --text-color)" }}>
-                  <span style={{ fontSize: "17px" }}>Р/У АК Ю-5830 №2</span>
-                </div>
-                <div style={{ margin: "0px 3px 0px 5px" }}>
-                  <SignalCellular2BarIcon />
-                </div>
-                <div style={{ margin: "0px 3px 0px 3px" }}>
-                  <Battery20SharpIcon />
-                </div>
-              </div>
-            </div>
-          </CardActionArea>
-        </Card>
+
         <FloatingButton />
       </div>
     </>
