@@ -24,7 +24,7 @@ import device5230 from "../../../../img/device/5230.png";
 import device6270 from "../../../../img/device/6270.png";
 import AddIcon from "@mui/icons-material/Add";
 import device2084 from "../../../../img/device/s_fonom_2084.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavigationButtons from "./NavigationButtons/NavigationButtons";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
@@ -41,10 +41,12 @@ const classes = {
     display: "flex",
     alignItems: "center",
 
-    maxWidth: 700,
-    minWidth: 280,
-    marginTop: "5px",
-    height: "137px",
+    maxWidth: "588px",
+    minWidth: "280px",
+    maxHeight: "160px",
+    minHeight: "130px",
+    marginTop: "10px",
+
     background: "var(--background-device-card)",
   },
 
@@ -60,13 +62,39 @@ const classes = {
 const MonitoringPage = () => {
   const [selectedCard, setSelectedCard] = useState(0);
   const [value, setValue] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [contentMargin, setContentMargin] = useState(0);
+
+  useEffect(() => {
+    if (headerRef.current) {
+      // Функция для обновления отступа
+      const updateContentMargin = () => {
+        setContentMargin(headerRef.current?.offsetHeight || 0);
+      };
+
+      // Инициализация ResizeObserver
+      const resizeObserver = new ResizeObserver(updateContentMargin);
+      resizeObserver.observe(headerRef.current);
+
+      // Установить начальный отступ
+      updateContentMargin();
+
+      // Очистка при размонтировании
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
+  }, []);
   return (
     <>
       <div
+        ref={headerRef}
         style={{
           display: "flex",
           flexDirection: "column",
           position: "fixed",
+          top: 56,
+          left: 0,
           zIndex: 1000,
           width: "100%",
           background: " var(--background-header)",
@@ -74,57 +102,57 @@ const MonitoringPage = () => {
       >
         <div
           style={{
-            display: "flex",
+            display: "grid",
+
             justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
             background: " var(--background-header)",
           }}
         >
           <div
             style={{
-              padding: " 0 17px",
-              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              background: " var(--background-header)",
+              marginLeft: "20px",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-
-                alignItems: "center",
-
-                background: " var(--background-header)",
-              }}
-            >
-              <span>Sim 1</span>
-              <div style={{ margin: "0px 3px 0px 3px" }}>
-                <SignalCellular2BarIcon />
-              </div>
-              {/*  <img width={"22%"} src={battery} alt="logo" /> */}
-              <Battery20SharpIcon />
+            <span>Sim 1</span>
+            <div style={{ margin: "0px 3px 0px 3px" }}>
+              <SignalCellular2BarIcon />
             </div>
 
-            <img style={{ maxWidth: "250px" }} width={"97%"} src={device2084} alt="logo" />
+            <Battery20SharpIcon />
           </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              background: " var(--background-header)",
+            }}
+          >
+            <img style={{ maxWidth: "110px", paddingRight: "20px" }} width={"20%"} src={device2084} alt="logo" />
 
-          <div style={{ flex: 2 }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <span style={{ color: "var( --text-color)" }}>Провод. Зона 1</span>
-              <div
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  background: "green",
-                  borderRadius: "20px",
-                  marginLeft: "10px",
-                }}
-              ></div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <span style={{ color: "var( --text-color)" }}>Провод. Зона 2</span>
-              <div
-                style={{ width: "15px", height: "15px", background: "red", borderRadius: "20px", marginLeft: "10px" }}
-              ></div>
+            <div>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ color: "var( --text-color)" }}>Провод. Зона 1, рзд. 1</span>
+                <div
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    background: "green",
+                    borderRadius: "20px",
+                    marginLeft: "10px",
+                  }}
+                ></div>
+              </div>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ color: "var( --text-color)" }}>Провод. Зона 2, рзд. 1</span>
+                <div
+                  style={{ width: "15px", height: "15px", background: "red", borderRadius: "20px", marginLeft: "10px" }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
@@ -151,9 +179,10 @@ const MonitoringPage = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-
-          padding: "230px 5px 0px 0px",
-          height: "100%",
+          marginTop: `${contentMargin + 10}px`,
+          marginBottom: "20px",
+          padding: "0px 5px",
+          height: "calc(100vh - 80px)" /* Высота контента, чтобы был скролл */,
         }}
       >
         <Card style={classes.cardSettings} elevation={24}>
@@ -171,10 +200,10 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "12px", background: "white" }}></div>
+            <div style={{ height: "165px", width: "8px", background: "white" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"25%"} height={"25%"} src={device5130} alt="logo2084" />
+                <img width={"21%"} src={device5130} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Беспровод. зона 3, рзд. 1</span>
@@ -231,10 +260,10 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "12px", background: "white" }}></div>
+            <div style={{ height: "165px", width: "8px", background: "white" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"25%"} height={"25%"} src={device5830} alt="logo2084" />
+                <img width={"21%"} src={device5830} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Беспровод. зона 4, рзд. 2</span>
@@ -294,7 +323,7 @@ const MonitoringPage = () => {
             <div style={{ height: "165px", width: "10px", background: "orange" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"25%"} height={"25%"} src={device5230} alt="logo2084" />
+                <img width={"21%"} src={device5230} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Беспровод. зона 6, рзд. 2</span>
@@ -342,7 +371,7 @@ const MonitoringPage = () => {
             <div style={{ height: "165px", width: "10px", background: "red" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img style={{ padding: "7px 23px 0px 11px" }} width={"16%"} src={device6270} alt="logo2084" />
+                <img style={{ padding: "15px 22px 0px 16px" }} width={"16%"} src={device6270} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Радио клавиатура, рзд 3</span>
@@ -358,7 +387,7 @@ const MonitoringPage = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ display: "flex", alignItems: "flex-end", margin: "17px 0px 5px 0px " }}>
+              <div style={{ display: "flex", alignItems: "flex-end", margin: "10px 0px 11px " }}>
                 <div style={{ color: "var( --text-color)" }}>
                   <span style={{ fontSize: "17px", marginLeft: "2px" }}>Р/У Кл Ю-6270 №4</span>
                 </div>
@@ -388,10 +417,10 @@ const MonitoringPage = () => {
               },
             }}
           >
-            <div style={{ height: "165px", width: "12px", background: "white" }}></div>
+            <div style={{ height: "165px", width: "8px", background: "white" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img width={"25%"} height={"25%"} src={device5830} alt="logo2084" />
+                <img width={"21%"} src={device5830} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Беспровод. зона 7, рзд. 2</span>

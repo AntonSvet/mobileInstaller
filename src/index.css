@@ -34,5 +34,5 @@ code {
      color: var(--text-color);
 }
 span{
-  font-size: clamp(20px, 4vw, 28px);
+  font-size: clamp(19px, 4vw, 24px);
 }
