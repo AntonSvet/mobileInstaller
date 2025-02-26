@@ -371,7 +371,7 @@ const MonitoringPage = () => {
             <div style={{ height: "165px", width: "10px", background: "red" }}></div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img style={{ padding: "15px 22px 0px 16px" }} width={"16%"} src={device6270} alt="logo2084" />
+                <img style={{ padding: "15px 12px 0px 8px" }} width={"16%"} src={device6270} alt="logo2084" />
                 <div>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span style={{ color: "var( --text-color)" }}>Радио клавиатура, рзд 3</span>
