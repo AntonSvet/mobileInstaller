@@ -38,9 +38,9 @@ code {
      color: var(--text-color);
 }
 span{
-  font-size: clamp(19px, 4vw, 24px);
+  font-size: clamp(20px, 4vw, 26px);
 }
-@media (max-width: 349px) {
+@media (max-width: 358px) {
     span {
        font-size:  17px; 
     }

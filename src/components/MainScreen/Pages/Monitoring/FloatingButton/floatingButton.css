@@ -52,11 +52,11 @@
 
 /* Эффект при наведении */
 .floating-button:hover {
-  background-color: #3146cf; /* Изменение цвета при наведении */
+  background-color: #5c8fd5;  /* Изменение цвета при наведении */
 }
 @keyframes buttonClick {
   0% {
-    background-color: #3513f5;
+    background-color: #5c8fd5; 
   }
   50% {
     background-color: #3700b3;
