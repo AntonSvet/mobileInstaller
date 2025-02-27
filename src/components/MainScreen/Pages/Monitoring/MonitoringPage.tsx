@@ -45,7 +45,7 @@ const classes = {
     minWidth: "280px",
     maxHeight: "165px",
     minheight: "134px",
-    marginTop: "10px",
+    marginBottom: "6px",
 
     background: "var(--background-device-card)",
   },
@@ -143,65 +143,77 @@ const MonitoringPage = () => {
           background: " var(--background-header)",
         }}
       >
-        <div
-          style={{
-            display: "grid",
-
-            justifyContent: "center",
-            background: " var(--background-header)",
-          }}
-        >
+        <div>
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              background: " var(--background-header)",
-              marginLeft: "20px",
-            }}
-          >
-            <span>Sim 1</span>
-            <div style={{ margin: "0px 3px 0px 3px" }}>
-              <SignalCellular2BarIcon />
-            </div>
+              display: "grid",
 
-            <Battery20SharpIcon />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
+              justifyContent: "start",
               background: " var(--background-header)",
             }}
           >
-            <img style={{ maxWidth: "110px", paddingRight: "20px" }} width={"20%"} src={device2084} alt="logo" />
-
-            <div>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span style={{ color: "var( --text-color)" }}>Провод. Зона 1, рзд. 1</span>
-                <div
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    background: "green",
-                    borderRadius: "20px",
-                    marginLeft: "10px",
-                  }}
-                ></div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                background: " var(--background-header)",
+                marginLeft: "14px",
+              }}
+            >
+              <span>Sim 1</span>
+              <div style={{ margin: "0px 3px 0px 3px" }}>
+                <SignalCellular2BarIcon />
               </div>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span style={{ color: "var( --text-color)" }}>Провод. Зона 2, рзд. 1</span>
-                <div
-                  style={{ width: "15px", height: "15px", background: "red", borderRadius: "20px", marginLeft: "10px" }}
-                ></div>
+
+              <Battery20SharpIcon />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                background: " var(--background-header)",
+                marginLeft: "5px",
+              }}
+            >
+              <img style={{ maxWidth: "110px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
+
+              <div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{ color: "var( --text-color)" }}>Провод. Зона 1, рзд. 1</span>
+                  <div
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      background: "green",
+                      borderRadius: "20px",
+                      marginLeft: "10px",
+                    }}
+                  ></div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{ color: "var( --text-color)" }}>Провод. Зона 2, рзд. 1</span>
+                  <div
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      background: "red",
+                      borderRadius: "20px",
+                      marginLeft: "10px",
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <NavigationButtons />
-        <FormControl sx={{ minWidth: 120, display: "flex", alignItems: "center" }} size="medium">
+        <FormControl
+          sx={{ minWidth: 120, display: "flex", alignItems: "center", background: "var(--background-color)" }}
+          size="medium"
+        >
           <NativeSelect
             sx={{ fontSize: "clamp(23px, 4vw, 26px)" }}
             defaultValue={10}
@@ -224,7 +236,7 @@ const MonitoringPage = () => {
           alignItems: "center",
           marginTop: `${contentMargin + 10}px`,
 
-          padding: "0px 5px",
+          padding: "0px 5px 85px 5px",
           // height: "calc(100vh - 80px)" /* Высота контента, чтобы был скролл */,
         }}
       >
@@ -304,7 +316,7 @@ const MonitoringPage = () => {
                       </div>
                     </div>
                   </div>
-                  <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px" }}>
+                  <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px", marginLeft: "5px" }}>
                     <div style={{ color: "var( --text-color)" }}>
                       <span style={{ fontSize: "17px" }}>
                         Р/У {el.name} №{el.number}

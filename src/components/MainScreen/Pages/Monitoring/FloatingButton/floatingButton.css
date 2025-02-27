@@ -3,12 +3,12 @@
   position: fixed; /* Фиксированное позиционирование */
   bottom: 45px; /* Отступ от нижнего края */
   right: 45px; /* Отступ от правого края */
-  width: 19vw;
-  height: 19vw;
+  width: 18vw;
+  height: 18vw;
   max-width: 80px; /* Максимальный размер */
   max-height: 80px; /* Максимальный размер */
   border-radius: 50%; /* Делаем кнопку круглой */
-  background-color: #423ffb; /* Цвет фона */
+  background-color: #5c8fd5; /* Цвет фона */
   border: none; /* Убираем границу */
   color: white; /* Цвет текста/иконки */
   font-size: 26px; /* Размер текста/иконки */
