@@ -177,7 +177,7 @@ const MonitoringPage = () => {
                 marginLeft: "5px",
               }}
             >
-              <img style={{ maxWidth: "108px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
+              <img style={{ maxWidth: "105px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
 
               <div>
                 <div style={{ display: "flex", alignItems: "center" }}>
