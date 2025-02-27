@@ -1,34 +1,17 @@
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  CardActionArea,
-  Divider,
-  Fab,
-  FormControl,
-  InputLabel,
-  List,
-  MenuItem,
-  NativeSelect,
-  Paper,
-  Select,
-} from "@mui/material";
+import { CardActionArea, FormControl, NativeSelect } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import "./monitoringPage.css";
 import device5130 from "../../../../img/device/5130.png";
 import device5830 from "../../../../img/device/5830.png";
 import device5230 from "../../../../img/device/5230.png";
 import device6270 from "../../../../img/device/6270.png";
-import AddIcon from "@mui/icons-material/Add";
+
 import device2084 from "../../../../img/device/s_fonom_2084.png";
 import { useEffect, useRef, useState } from "react";
 import NavigationButtons from "./NavigationButtons/NavigationButtons";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
-import { Height } from "@mui/icons-material";
+
 import FloatingButton from "./FloatingButton/FloatingButton";
 const classes = {
   positionSettings: {
@@ -143,67 +126,58 @@ const MonitoringPage = () => {
           background: " var(--background-header)",
         }}
       >
-        <div>
+        <div className="device-grid-container">
           <div
             style={{
-              display: "grid",
-
-              justifyContent: "start",
+              display: "flex",
+              alignItems: "center",
               background: " var(--background-header)",
+              marginLeft: "14px",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                background: " var(--background-header)",
-                marginLeft: "14px",
-              }}
-            >
-              <span>Sim 1</span>
-              <div style={{ margin: "0px 3px 0px 3px" }}>
-                <SignalCellular2BarIcon />
-              </div>
-
-              <Battery20SharpIcon />
+            <span>Sim 1</span>
+            <div style={{ margin: "0px 3px 0px 3px" }}>
+              <SignalCellular2BarIcon />
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                background: " var(--background-header)",
-                marginLeft: "5px",
-              }}
-            >
-              <img style={{ maxWidth: "103px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
 
-              <div>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <span style={{ color: "var( --text-color)" }}>Провод. Зона 1, рзд. 1</span>
-                  <div
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      background: "green",
-                      borderRadius: "20px",
-                      marginLeft: "10px",
-                    }}
-                  ></div>
-                </div>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <span style={{ color: "var( --text-color)" }}>Провод. Зона 2, рзд. 1</span>
-                  <div
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      background: "red",
-                      borderRadius: "20px",
-                      marginLeft: "10px",
-                    }}
-                  ></div>
-                </div>
+            <Battery20SharpIcon />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              background: " var(--background-header)",
+              marginLeft: "5px",
+            }}
+          >
+            <img style={{ maxWidth: "110px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
+
+            <div>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ color: "var( --text-color)" }}>Провод. Зона 1, рзд. 1</span>
+                <div
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    background: "green",
+                    borderRadius: "20px",
+                    marginLeft: "10px",
+                  }}
+                ></div>
+              </div>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ color: "var( --text-color)" }}>Провод. Зона 2, рзд. 1</span>
+                <div
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    background: "red",
+                    borderRadius: "20px",
+                    marginLeft: "10px",
+                  }}
+                ></div>
               </div>
             </div>
           </div>

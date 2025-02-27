@@ -1,0 +1,10 @@
+.device-grid-container{
+   display:grid;
+   justify-content: start;
+   background:   var(--background-header);
+}
+@media (min-width: 450px) {
+    .device-grid-container {
+        justify-content: center;
+    }
+}

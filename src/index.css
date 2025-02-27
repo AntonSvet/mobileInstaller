@@ -40,3 +40,8 @@ code {
 span{
   font-size: clamp(19px, 4vw, 24px);
 }
+@media (max-width: 349px) {
+    span {
+       font-size:  17px; 
+    }
+}
