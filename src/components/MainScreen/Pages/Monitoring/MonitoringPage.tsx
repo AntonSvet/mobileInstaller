@@ -157,7 +157,7 @@ const MonitoringPage = () => {
                 display: "flex",
                 alignItems: "center",
                 background: " var(--background-header)",
-                marginLeft: "11px",
+                marginLeft: "14px",
               }}
             >
               <span>Sim 1</span>
@@ -174,10 +174,10 @@ const MonitoringPage = () => {
                 alignItems: "center",
                 width: "100%",
                 background: " var(--background-header)",
-                marginLeft: "4px",
+                marginLeft: "5px",
               }}
             >
-              <img style={{ maxWidth: "110px", paddingRight: "3px" }} width={"40%"} src={device2084} alt="logo" />
+              <img style={{ maxWidth: "110px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
 
               <div>
                 <div style={{ display: "flex", alignItems: "center" }}>
