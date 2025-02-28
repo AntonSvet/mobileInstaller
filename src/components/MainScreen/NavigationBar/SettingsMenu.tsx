@@ -37,7 +37,6 @@ export default function SettingsMenu() {
         <Tooltip title=" settings">
           <IconButton
             onClick={handleClick}
-            size="large"
             sx={{ ml: 2 }}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"

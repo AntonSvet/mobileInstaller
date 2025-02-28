@@ -5,7 +5,6 @@ import MainPage from "./Pages/MainPage";
  
 
 const MainScreen = () => {
- 
   const [selectedMenu, setSelectedMenu] = useState("Мониторинг");
   const handleMenu = (el: string) => setSelectedMenu(el);
   return (

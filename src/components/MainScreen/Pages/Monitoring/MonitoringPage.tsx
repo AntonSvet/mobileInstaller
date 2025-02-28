@@ -13,6 +13,8 @@ import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 
 import FloatingButton from "./FloatingButton/FloatingButton";
+import ImageLoader from "../../../../common/ImageLoader/ImageLoader";
+import useImageLoader from "../../../../hooks/useImageLoader";
 const classes = {
   positionSettings: {
     display: "flex",
@@ -90,6 +92,7 @@ const MonitoringPage = () => {
   const [value, setValue] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
   const [contentMargin, setContentMargin] = useState(0);
+  const { progress, isLoading } = useImageLoader(document.querySelectorAll("img"));
 
   useEffect(() => {
     if (headerRef.current) {
@@ -111,15 +114,22 @@ const MonitoringPage = () => {
       };
     }
   }, []);
+
   return (
     <>
+      {isLoading && (
+        <div>
+          <ImageLoader progress={progress} />;
+        </div>
+      )}
       <div
         ref={headerRef}
         style={{
           display: "flex",
+          visibility: isLoading ? "hidden" : "visible",
           flexDirection: "column",
           position: "fixed",
-          top: 56,
+          top: 48,
           left: 0,
           zIndex: 1000,
           width: "100%",
@@ -201,7 +211,7 @@ const MonitoringPage = () => {
           flexDirection: "column",
           alignItems: "center",
           marginTop: `${contentMargin + 10}px`,
-
+          visibility: isLoading ? "hidden" : "visible",
           padding: "0px 5px 85px 5px",
           // height: "calc(100vh - 80px)" /* Высота контента, чтобы был скролл */,
         }}

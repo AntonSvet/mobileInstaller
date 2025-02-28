@@ -70,3 +70,38 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+self.addEventListener('fetch', (event) => {
+  const url = event.request.url;
+  console.log('asdasdasdasd');
+
+  event.respondWith(
+    fetch(event.request).then((response) => {
+      const reader = response.body.getReader();
+      let loaded = 0;
+      const contentLength = +response.headers.get('Content-Length');
+
+      const stream = new ReadableStream({
+        start(controller) {
+          function push() {
+            reader.read().then(({ done, value }) => {
+              if (done) {
+                controller.close();
+                return;
+              }
+              loaded += value.length;
+              const percentage = (loaded / contentLength) * 100;
+              console.log(`Loaded ${percentage}% of ${url}`);
+              controller.enqueue(value);
+              push();
+            });
+          }
+          push();
+        },
+      });
+
+      return new Response(stream, {
+        headers: response.headers,
+      });
+    })
+  );
+});

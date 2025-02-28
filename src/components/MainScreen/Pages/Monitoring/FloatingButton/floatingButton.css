@@ -7,7 +7,7 @@
   height: 18vw;
   max-width: 80px; /* Максимальный размер */
   max-height: 80px; /* Максимальный размер */
-  border-radius: 50%; /* Делаем кнопку круглой */
+  border-radius: 24%; /* Делаем кнопку круглой */
   background-color: #5c8fd5; /* Цвет фона */
   border: none; /* Убираем границу */
   color: white; /* Цвет текста/иконки */

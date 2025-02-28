@@ -4,7 +4,7 @@
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(45deg) rotateY(45deg);
-  animation: spin 7s infinite ease-in-out, levitate 3s infinite ease-in-out;
+  animation: spinCube 7s infinite ease-in-out, levitate 3s infinite ease-in-out;
   
 }
 
@@ -24,7 +24,7 @@
  
 
  
-@keyframes spin {
+@keyframes spinCube {
   0%, 16.67% { /* 0% - 1 секунда (вращение) */
     transform: rotateY(0);
   }
