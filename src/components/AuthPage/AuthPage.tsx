@@ -56,7 +56,7 @@ const AuthPage = () => {
 
   return (
     <header className="app-header">
-      <div className="logo">
+      <div className="logo-elesta">
         {!isScanning && <LogoCube />}
         <video
           ref={videoRef}
