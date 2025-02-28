@@ -164,16 +164,13 @@
 }
 
 .logo-elesta {
-  display: flex;
+    display: flex;
     justify-content: center;
      position: absolute;
      top:10%;
-    align-items: center;
+     align-items: center;
     
-    width: 90%; /* Ширина контейнера */
-      max-width: 800px; /* Максимальная ширина */
-      margin: 0 auto; /* Центрирование */
-       
+    
 }
 .qr-scan-view{
       display: flex
