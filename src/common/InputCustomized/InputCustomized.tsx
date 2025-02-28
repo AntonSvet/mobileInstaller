@@ -60,8 +60,9 @@ const InputCustomized: FunctionComponent<IKeyboard> = ({
 
   if (flag === "placeholder")
     return (
-      <TextField 
+      <TextField
         ref={inputRef}
+        disabled={isDisabled}
         name={"a" + Math.random()}
         size="small"
         autoComplete="new-password"
@@ -70,7 +71,7 @@ const InputCustomized: FunctionComponent<IKeyboard> = ({
         variant="outlined"
         label={label}
         onChange={onChangeInput}
-        value={""}
+        value={value}
         onFocus={inputFocus}
         InputProps={{
           endAdornment: !!currentValue && (
@@ -84,7 +85,7 @@ const InputCustomized: FunctionComponent<IKeyboard> = ({
     );
 
   return (
-    <Box sx={ {"& .MuiTextField-root": { width: "100%" }, ...classes.inputMain}}>
+    <Box sx={{ "& .MuiTextField-root": { width: "100%" }, ...classes.inputMain }}>
       <TextField
         ref={inputRef}
         name={"a" + Math.random()}
@@ -94,7 +95,7 @@ const InputCustomized: FunctionComponent<IKeyboard> = ({
         style={{ padding: "2px" }}
         label={label}
         variant="standard"
-        value={""}
+        value={value}
         onChange={onChangeInput}
         onFocus={inputFocus}
         autoFocus={type === "password" && numeric}

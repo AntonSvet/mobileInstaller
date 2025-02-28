@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Footer from "./Footer/Footer";
 import HeaderBar from "./NavigationBar/HeaderBar";
 import MainPage from "./Pages/MainPage";
- 
 
 const MainScreen = () => {
   const [selectedMenu, setSelectedMenu] = useState("Мониторинг");

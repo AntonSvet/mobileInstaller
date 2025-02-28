@@ -9,7 +9,7 @@ code {
   --background-color: #f8f5f5;
   --background-header: #ffffff;
   --background-device-card: #fff;
-  --background-drawer-menu: linear-gradient(135deg, #e9e1e1, #fb9f8d);
+  --background-drawer-menu: linear-gradient(135deg, #ffffff, #787878);
   --background-color-setting-menu: #ebebeb;
   --text-color: #000000;
   --header-text-color: #5b5e5b;
@@ -21,7 +21,7 @@ code {
   --background-color: #282c34;
   --background-header: #505050;
   --background-device-card: #625b5b;
-  --background-drawer-menu: linear-gradient(135deg, #242222, #de3615);
+  --background-drawer-menu: linear-gradient(135deg, #adadad, #413f3f);
   --background-color-setting-menu: #36383a;
   --text-color: #ffffff;
   --header-text-color: #eff7ef;

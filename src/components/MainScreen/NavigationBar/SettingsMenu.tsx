@@ -1,16 +1,15 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+
 import Tooltip from "@mui/material/Tooltip";
- 
+
 import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+
 import { useState } from "react";
 import AboutAppModal from "./AboutAppModal";
 import Download from "@mui/icons-material/DownloadTwoTone";
@@ -32,9 +31,9 @@ export default function SettingsMenu() {
   const callback = (x: boolean) => setOpenAppModal(x);
 
   return (
-    <React.Fragment>
+    <>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title=" settings">
+        <Tooltip title="Настройки">
           <IconButton
             onClick={handleClick}
             sx={{ ml: 2 }}
@@ -51,7 +50,6 @@ export default function SettingsMenu() {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        //onClick={handleClose}
         slotProps={{
           paper: {
             elevation: 0,
@@ -110,6 +108,6 @@ export default function SettingsMenu() {
         </MenuItem>
       </Menu>
       {openAppModal && <AboutAppModal open={openAppModal} callback={callback} />}
-    </React.Fragment>
+    </>
   );
 }

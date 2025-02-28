@@ -37,3 +37,13 @@
     .native-select:focus {
   border-bottom: 2px solid #5c8fd5;   
 }
+.cardSettings{
+    display: flex;
+    align-items: center;
+    max-width: 588px;
+    min-Width: 280px;
+    max-height: 165px;
+    min-height: 134px;
+    margin-bottom: 6px;
+    background: var(--background-device-card);
+}

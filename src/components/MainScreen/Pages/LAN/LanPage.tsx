@@ -1,4 +1,4 @@
-import imgPage from "../../../../../img/under_construction_girl.png";
+import imgPage from "../../../../img/under_construction_girl.png";
 
 const LanPage = () => {
   return (
