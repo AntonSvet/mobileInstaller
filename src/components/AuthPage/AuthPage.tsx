@@ -55,9 +55,20 @@ const AuthPage = () => {
   }
 
   return (
- 
-      <header className="app-header">
-        <LogoCube />
+    <header className="app-header">
+      <div className="logo">
+        {!isScanning && <LogoCube />}
+        <video
+          ref={videoRef}
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover",
+            display: isScanning ? "block" : "none",
+          }}
+        />
+      </div>
+      <div className="qr-scan-view">
         <p>Введите ID6 или отсканируйте QR-Code</p>
         <div className="input-with-button">
           <input type="text" pattern="[0-9A-Fa-f]" placeholder="Введите ID6 " className="input-field" />
@@ -65,23 +76,13 @@ const AuthPage = () => {
             Отправить
           </button>
         </div>
-        <div className="camera-view">
-          <video
-            ref={videoRef}
-            style={{
-              width: "90%",
-              visibility: isScanning ? "visible" : "hidden",
-            }}
-          />
 
-          <button onClick={isScanning ? stopScanning : startScanning} className="qr-scan-button">
-            <div className="qr-icon">&#x1F4F7;</div>
-            <div className="qr-text">{isScanning ? "Отмена" : "Сканировать QR-код"}</div>
-          </button>
-          {scannedData && <p>Сканированные данные: {scannedData}</p>}
-        </div>
-      </header>
-     
+        <button onClick={isScanning ? stopScanning : startScanning} className="qr-scan-button">
+          <div className="qr-icon">&#x1F4F7;</div>
+          <div className="qr-text">{isScanning ? "Отмена" : "Сканировать QR-код"}</div>
+        </button>
+      </div>
+    </header>
   );
 };
 

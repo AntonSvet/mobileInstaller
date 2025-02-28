@@ -14,7 +14,7 @@ const NavigationButtons: React.FC = () => {
         className={`nav-button ${selectedButton === "Устройство" ? "selected" : ""}`}
         onClick={() => handleButtonClick("Устройство")}
       >
-        RS-485
+        Все
       </button>
       <button
         className={`nav-button ${selectedButton === "Раздел" ? "selected" : ""}`}
@@ -27,7 +27,7 @@ const NavigationButtons: React.FC = () => {
         className={`nav-button ${selectedButton === "Состояние" ? "selected" : ""}`}
         onClick={() => handleButtonClick("Состояние")}
       >
-        Зоны
+        RS-485
       </button>
     </div>
   );

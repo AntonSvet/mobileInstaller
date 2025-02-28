@@ -184,23 +184,15 @@ const MonitoringPage = () => {
         </div>
 
         <NavigationButtons />
-        <FormControl
-          sx={{ minWidth: 120, display: "flex", alignItems: "center", background: "var(--background-color)" }}
-          size="medium"
-        >
-          <NativeSelect
-            sx={{ fontSize: "clamp(23px, 4vw, 26px)" }}
-            defaultValue={10}
-            inputProps={{
-              name: "age",
-              id: "uncontrolled-native",
-            }}
-          >
-            <option value={10}>Все устройства</option>
-            <option value={20}>----</option>
-            <option value={30}>-----</option>
-          </NativeSelect>
-        </FormControl>
+
+        <div className="form-control">
+          <select className="native-select" name="Фильтры">
+            <option value="10">Фильтры</option>
+            <option value="20">Все устройства</option>
+            <option value="30">Устр. содерж. Зоны</option>
+            <option value="40">-----</option>
+          </select>
+        </div>
       </div>
 
       <div
