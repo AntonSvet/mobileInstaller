@@ -1,6 +1,7 @@
 import device5130 from "../img/device/5130.png";
 import device5830 from "../img/device/5830.png";
 import device5230 from "../img/device/5230.png";
+import device6270 from "../img/device/6270.png";
 
 export const radioDevice = [
   {
@@ -42,5 +43,15 @@ export const radioDevice = [
     statusZone: ["grey", "grey"],
     stutusDevice: "white",
     image: device5830,
+  },
+  {
+    id: 4,
+    name: "Кл Ю-6270",
+    number: 5,
+    zone: [],
+    section: [3],
+    statusZone: ["white"],
+    stutusDevice: "red",
+    image: device6270,
   },
 ];

@@ -13,19 +13,21 @@ code {
   --background-color-setting-menu: #ebebeb;
   --text-color: #000000;
   --header-text-color: #5b5e5b;
-  --box-shadow: 0px 0px 10px rgba(39, 37, 37, 0.6);
   --text-size:clamp(20px, 4vw, 26px);
+  --box-shadow: 0px 0px 10px rgba(39, 37, 37, 0.6);
+  --card-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); 
 }
 
 [data-theme="dark"] {
   --background-color: #282c34;
   --background-header: #505050;
-  --background-device-card: #625b5b;
+  --background-device-card: rgb(81 81 81);
   --background-drawer-menu: linear-gradient(135deg, #adadad, #413f3f);
   --background-color-setting-menu: #36383a;
   --text-color: #ffffff;
   --header-text-color: #eff7ef;
   --box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  --card-shadow: 0px 8px 24px rgba(208, 205, 205, 0.2);
 }
 
  body {
@@ -40,6 +42,7 @@ code {
 }
 span{
   font-size: var(--text-size); 
+  color: var(--text-color);
    
 }
 @media (max-width: 358px) {

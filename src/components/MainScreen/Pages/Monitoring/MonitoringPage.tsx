@@ -12,6 +12,7 @@ import ImageLoader from "../../../../common/ImageLoader/ImageLoader";
 import useImageLoader from "../../../../hooks/useImageLoader";
 import { radioDevice } from "../../../../utils/mock";
 import useResizeObserver from "../../../../hooks/useResizeObserver";
+import CardDevice from "./CardDevice/CardDevice";
 
 const MonitoringPage = () => {
   const [selectedCard, setSelectedCard] = useState(0);
@@ -120,8 +121,14 @@ const MonitoringPage = () => {
         }}
       >
         {radioDevice.map((el, index) => {
-          return (
-            <Card key={index} className="cardSettings" elevation={24}>
+          return <CardDevice key={index} el={el} index={index} />;
+          /* (
+            <Card
+              key={index}
+              style={{ background: "var(--background-device-card)" }}
+              className="cardSettings"
+              elevation={24}
+            >
               <CardActionArea
                 onClick={() => setSelectedCard(1)}
                 data-active={selectedCard === 1 ? "" : undefined}
@@ -211,7 +218,7 @@ const MonitoringPage = () => {
                 </div>
               </CardActionArea>
             </Card>
-          );
+          ); */
         })}
 
         <Card className="cardSettings" elevation={24}>
@@ -250,7 +257,7 @@ const MonitoringPage = () => {
               </div>
               <div style={{ display: "flex", alignItems: "flex-end", margin: "5px 0px 5px " }}>
                 <div style={{ color: "var( --text-color)" }}>
-                  <span style={{ fontSize: "17px", marginLeft: "2px" }}>Р/У Кл Ю-6270 №4</span>
+                  <span style={{ fontSize: "17px", marginLeft: "2px" }}>Р/У Кл Ю-6270 №6</span>
                 </div>
                 <div style={{ margin: "0px 3px 0px 5px" }}>
                   <SignalCellular2BarIcon />
