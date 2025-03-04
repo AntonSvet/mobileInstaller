@@ -9,7 +9,7 @@ const MainScreen = () => {
   return (
     <div className="main_screen">
       <HeaderBar selectedMenu={selectedMenu} callback={handleMenu} />
-      <MainPage selectedMenu={selectedMenu} />
+      <MainPage selectedMenu={selectedMenu} callback={handleMenu} />
       <Footer />
     </div>
   );

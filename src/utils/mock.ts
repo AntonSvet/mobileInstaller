@@ -2,7 +2,20 @@ import device5130 from "../img/device/5130.png";
 import device5830 from "../img/device/5830.png";
 import device5230 from "../img/device/5230.png";
 import device6270 from "../img/device/6270.png";
-
+import device3812 from "../img/device/3812.png";
+export const rsDevice = [
+  {
+    id: 0,
+    name: "РШ Ю-3812",
+    number: 1,
+    zone: [1, 2, 3, 4, 5, 6, 7, 8],
+    section: [1, 2],
+    statusZone: ["green", null],
+    stutusDevice: "white",
+    image: device5130,
+    type: "rs",
+  },
+];
 export const radioDevice = [
   {
     id: 0,
@@ -53,5 +66,27 @@ export const radioDevice = [
     statusZone: ["white"],
     stutusDevice: "red",
     image: device6270,
+  },
+  {
+    id: 5,
+    name: "РШ Ю-3812",
+    number: 1,
+    zone: [9, 10, 11, 12, 13, 14, 15, 16],
+    section: [1, 2, 3, 4, 5, 6, 7, 8],
+    statusZone: ["green", null, "green", "green", "green", "red"],
+    stutusDevice: "green",
+    image: device3812,
+    type: "rs",
+  },
+  {
+    id: 5,
+    name: "РШ Ю-3812",
+    number: 2,
+    zone: [17, 18, 19, 20, 21, 22, 23, 24],
+    section: [1, 2, 3, 4, 5, 6, 7, 8],
+    statusZone: ["green", null, "green", "green", "green", "red"],
+    stutusDevice: "orange",
+    image: device3812,
+    type: "rs",
   },
 ];

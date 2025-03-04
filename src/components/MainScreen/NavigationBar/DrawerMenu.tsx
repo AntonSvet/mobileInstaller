@@ -30,20 +30,18 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
       onClick={toggleDrawer(false)}
     >
       <List>
-        {["Устройства", "Общие", "Зоны", "Параметры связи", "GPRS", "SMS", "LAN", "Коды пользователя"].map(
-          (text, index) => (
-            <div key={index}>
-              <ListItem disablePadding>
-                <ListItemButton style={{ background: text === selectedMenu ? "#babcc3" : "" }}>
-                  <span style={{ fontSize: "clamp(26px, 4vw, 30px)" }} onClick={() => callback(text)}>
-                    {text}
-                  </span>
-                </ListItemButton>
-              </ListItem>
-              <Divider />
-            </div>
-          )
-        )}
+        {["Устройства", "Зоны", "Параметры связи", "Коды пользователя"].map((text, index) => (
+          <div key={index}>
+            <ListItem disablePadding>
+              <ListItemButton style={{ background: text === selectedMenu ? "#babcc3" : "" }}>
+                <span style={{ fontSize: "clamp(26px, 4vw, 30px)" }} onClick={() => callback(text)}>
+                  {text}
+                </span>
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+          </div>
+        ))}
       </List>
     </Box>
   );

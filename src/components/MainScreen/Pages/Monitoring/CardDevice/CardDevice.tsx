@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./cardDevice.css"; // Подключаем CSS-стили
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 
-
-
-const CardDevice = ({ el, index }:any) => {
+const CardDevice = ({ el, index }: any) => {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleClick = () => {
@@ -58,7 +56,7 @@ const CardDevice = ({ el, index }:any) => {
           <div className="footer" style={{ marginLeft: "5px" }}>
             <div className="text">
               <span style={{ fontSize: "17px" }}>
-                Р/У {el.name} №{el.number}
+                {el.name} №{el.number}
               </span>
             </div>
             <div className="signal-icon">

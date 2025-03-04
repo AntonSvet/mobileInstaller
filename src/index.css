@@ -40,7 +40,12 @@ code {
     background-color: var(--background-color);
      color: var(--text-color);
 }
-span{
+span {
+  font-size: var(--text-size); 
+  color: var(--text-color);
+   
+}
+input {
   font-size: var(--text-size); 
   color: var(--text-color);
    

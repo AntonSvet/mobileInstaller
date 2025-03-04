@@ -8,12 +8,12 @@ import GeneralSettingsPage from "../GeneralSettings/GeneralSettingsPage";
 const LanPageWithErrorBoundary = WithErrorBoundary(LanPage);
 const GprsPageWithErrorBoundary = WithErrorBoundary(GprsPage);
 const GeneralSettingsPageWithErrorBoundary = WithErrorBoundary(GeneralSettingsPage);
-const MonitoringPageWithErrorBoundary = WithErrorBoundary(MonitoringPage);
+//const MonitoringPageWithErrorBoundary = WithErrorBoundary(MonitoringPage);
 
-const PageRoute = ({ route }: { route: string }) => {
+const PageRoute = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
   switch (route) {
     case "Мониторинг":
-      return <MonitoringPageWithErrorBoundary />;
+      return <MonitoringPage route={route} callback={callback} />;
     case "Общие":
       return <GeneralSettingsPageWithErrorBoundary />;
 
@@ -23,7 +23,7 @@ const PageRoute = ({ route }: { route: string }) => {
       return <LanPageWithErrorBoundary />;
 
     default:
-      return <MonitoringPageWithErrorBoundary />;
+      return <MonitoringPage route={route} callback={callback} />;
   }
 };
 export default PageRoute;

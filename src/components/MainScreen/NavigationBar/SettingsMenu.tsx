@@ -13,6 +13,7 @@ import Settings from "@mui/icons-material/Settings";
 import { useState } from "react";
 import AboutAppModal from "./AboutAppModal";
 import Download from "@mui/icons-material/DownloadTwoTone";
+import Upload from "@mui/icons-material/UploadTwoTone";
 import Cloud from "@mui/icons-material/CloudUploadTwoTone";
 import Restart from "@mui/icons-material/RestartAltRounded";
 import Display from "@mui/icons-material/DisplaySettingsTwoTone";
@@ -84,15 +85,15 @@ export default function SettingsMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Cloud sx={{ paddingRight: "5px" }} fontSize="large" /> Сохранить
+          <Upload sx={{ paddingRight: "5px" }} fontSize="large" /> Сохранить конфигурацию
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Download sx={{ paddingRight: "5px" }} fontSize="large" /> Загрузить
+          <Download sx={{ paddingRight: "5px" }} fontSize="large" /> Открыть конфигурацию
         </MenuItem>
-        <Divider />
+        {/*  <Divider />
         <MenuItem onClick={handleClose}>
           <Restart sx={{ paddingRight: "5px" }} fontSize="large" /> Перезапуск
-        </MenuItem>
+        </MenuItem> */}
         <Divider />
         <MenuItem onClick={() => callback(true)}>
           <Display sx={{ paddingRight: "5px" }} fontSize="large" /> О программе

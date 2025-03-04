@@ -13,8 +13,9 @@ import useImageLoader from "../../../../hooks/useImageLoader";
 import { radioDevice } from "../../../../utils/mock";
 import useResizeObserver from "../../../../hooks/useResizeObserver";
 import CardDevice from "./CardDevice/CardDevice";
+import RScardDevice from "./CardDevice/RScardDevice";
 
-const MonitoringPage = () => {
+const MonitoringPage = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
   const [selectedCard, setSelectedCard] = useState(0);
 
   const headerRef = useRef<HTMLDivElement>(null);
@@ -42,7 +43,7 @@ const MonitoringPage = () => {
           visibility: isLoading ? "hidden" : "visible",
         }}
       >
-        <div className="device-grid-container">
+        <div onClick={() => callback("Общие")} className="device-grid-container">
           <div
             style={{
               display: "flex",
@@ -97,6 +98,9 @@ const MonitoringPage = () => {
               </div>
             </div>
           </div>
+          <div style={{ display: "flex", marginLeft: "14px" }}>
+            <span>ID: 0000-0099-6CAC</span>
+          </div>
         </div>
 
         <NavigationButtons />
@@ -121,155 +125,12 @@ const MonitoringPage = () => {
         }}
       >
         {radioDevice.map((el, index) => {
-          return <CardDevice key={index} el={el} index={index} />;
-          /* (
-            <Card
-              key={index}
-              style={{ background: "var(--background-device-card)" }}
-              className="cardSettings"
-              elevation={24}
-            >
-              <CardActionArea
-                onClick={() => setSelectedCard(1)}
-                data-active={selectedCard === 1 ? "" : undefined}
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  "&[data-active]": {
-                    backgroundColor: "action.selected",
-                    "&:hover": {
-                      backgroundColor: "action.selectedHover",
-                    },
-                  },
-                }}
-              >
-                <div style={{ height: "134px", width: "8px", background: `${el.stutusDevice}` }}></div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <img width={"21%"} src={el.image} alt="logo2084" />
-                    <div>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <div style={{ display: "flex", alignItems: "center" }}>
-                          <span style={{ color: "var( --text-color)" }}>
-                            Беспровод. зона {el.zone[0]}, рзд. {el.section[0]}
-                          </span>
-                        </div>
-                        <div
-                          style={{
-                            width: "15px",
-                            height: "15px",
-                            borderRadius: "20px",
-                            marginLeft: "10px",
-                            background: `${el.statusZone[0]}`,
-                          }}
-                        ></div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <div style={{ display: "flex", alignItems: "center" }}>
-                          {el.zone[1] === null ? (
-                            <span style={{ color: "#c0c0c0" }}>Дополн. зона {el.zone[1]} </span>
-                          ) : el.zone[1] ? (
-                            <span>
-                              Дополн. зона {el.zone[1]},рзд {el.section[1]}
-                            </span>
-                          ) : (
-                            <span></span>
-                          )}
-                        </div>
-                        {el.statusZone[1] && (
-                          <div
-                            style={{
-                              width: "15px",
-                              height: "15px",
-                              borderRadius: "20px",
-                              marginLeft: "10px",
-                              background: `${el.statusZone[1]}`,
-                            }}
-                          ></div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "flex-end", marginTop: "17px", marginLeft: "5px" }}>
-                    <div style={{ color: "var( --text-color)" }}>
-                      <span style={{ fontSize: "17px" }}>
-                        Р/У {el.name} №{el.number}
-                      </span>
-                    </div>
-                    <div style={{ margin: "0px 3px 0px 5px" }}>
-                      <SignalCellular2BarIcon />
-                    </div>
-                    <div style={{ margin: "0px 3px 0px 3px" }}>
-                      <Battery20SharpIcon />
-                    </div>
-                  </div>
-                </div>
-              </CardActionArea>
-            </Card>
-          ); */
+          return el.type ? (
+            <RScardDevice key={index} el={el} index={index} />
+          ) : (
+            <CardDevice key={index} el={el} index={index} />
+          );
         })}
-
-        <Card className="cardSettings" elevation={24}>
-          <CardActionArea
-            onClick={() => setSelectedCard(1)}
-            data-active={selectedCard === 1 ? "" : undefined}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              "&[data-active]": {
-                backgroundColor: "action.selected",
-                "&:hover": {
-                  backgroundColor: "action.selectedHover",
-                },
-              },
-            }}
-          >
-            <div style={{ height: "134px", width: "10px", background: "red" }}></div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img style={{ padding: "6px 25px 0px 20px" }} width={"12%"} src={device6270} alt="logo2084" />
-                <div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <span style={{ color: "var( --text-color)" }}>Радио клавиатура, рзд 3</span>
-                    <div
-                      style={{
-                        width: "15px",
-                        height: "15px",
-                        background: "white",
-                        borderRadius: "20px",
-                        marginLeft: "10px",
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end", margin: "5px 0px 5px " }}>
-                <div style={{ color: "var( --text-color)" }}>
-                  <span style={{ fontSize: "17px", marginLeft: "2px" }}>Р/У Кл Ю-6270 №6</span>
-                </div>
-                <div style={{ margin: "0px 3px 0px 5px" }}>
-                  <SignalCellular2BarIcon />
-                </div>
-                <div style={{ margin: "0px 3px 0px 3px" }}>
-                  <Battery20SharpIcon />
-                  <Battery20SharpIcon />
-                </div>
-              </div>
-            </div>
-          </CardActionArea>
-        </Card>
 
         <FloatingButton />
       </div>
