@@ -1,0 +1,78 @@
+.setting-rs-card{
+   
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+ .setting-rs-card-main-header{
+ display: flex;
+ justify-content: space-evenly;
+ width: 100%;
+ margin-left: 10px;
+}
+
+.setting-rs-card-main-header-inside{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding-top: 10px;
+
+}
+.setting-rs-card-header-position{
+  display: flex;
+  flex-direction: column;
+}
+.setting-rs-card header{
+  display: flex;
+justify-content: center;
+align-items: center;
+position: sticky;
+  flex-direction: column;
+  background: var( --background-header);
+  margin-bottom: 10px;
+     top: 0;
+    z-index: 10;
+    border-bottom: 1px solid black;
+   
+}
+.setting-rs-card-font-size span {
+   font-size:  clamp(24px, 4vw, 24px);
+}
+.setting-rs-card-back-arrow{
+  position: absolute;
+ top:0;
+  left:  10px ;
+  font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.setting-rs-card-one{
+   background: var(--background-device-card);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow); /* Тень */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  width: 100%; /* Занимает всю доступную ширину */
+  max-height: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.setting-rs-card-inside{
+ display: flex;
+   flex-direction: column;
+   padding: 10px 3px 0px 3px;
+}
+ .setting-rs-card-block{
+display: flex;
+ margin: 6px 0px;
+ }
+ .setting-rs-card-block-row{
+  display: flex;
+ }
+ .setting-rs-card-block-row input{
+  width: 40px;
+ }
