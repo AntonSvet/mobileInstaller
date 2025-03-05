@@ -21,7 +21,10 @@ const RScardDevice = ({ el, index }: any) => {
         <div className="status-bar" style={{ background: el.stutusDevice, minHeight: "260px" }}></div>
         <div className="content">
           <div className="main-content">
-            <img height={"22%"} style={{ padding: "10px 15px 0px 10px" }} src={el.image} alt={el.name} />
+            <div className="image-device">
+              <img src={el.image} alt={el.name} />
+            </div>
+
             <div>
               {el.zone.map((item: number, i: number) => {
                 return (
@@ -37,14 +40,13 @@ const RScardDevice = ({ el, index }: any) => {
               })}
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="footer" style={{ marginLeft: "8px" }}>
-        <div className="text">
-          <span style={{ fontSize: "17px" }}>
-            {el.name} №{el.number}
-          </span>
+          <div className="footer" style={{ marginLeft: "8px" }}>
+            <div className="text">
+              <span style={{ fontSize: "17px" }}>
+                {el.name} №{el.number}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

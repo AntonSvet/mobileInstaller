@@ -16,11 +16,14 @@ const CardDevice = ({ el, index }: any) => {
         <div className="status-bar" style={{ background: el.stutusDevice }}></div>
         <div className="content">
           <div className="main-content">
-            {el.name !== "Кл Ю-6270" ? (
-              <img width={"21%"} src={el.image} alt="logo2084" />
-            ) : (
-              <img width={"12%"} style={{ padding: "6px 25px 0px 20px" }} src={el.image} alt={el.name} />
-            )}
+            <div className="image-device">
+              {el.name !== "Кл Ю-6270" ? (
+                <img src={el.image} alt="logo2084" />
+              ) : (
+                <img style={{ padding: "6px 25px 0px 20px" }} src={el.image} alt={el.name} />
+              )}
+            </div>
+
             <div>
               <div className="row">
                 <div className="text">

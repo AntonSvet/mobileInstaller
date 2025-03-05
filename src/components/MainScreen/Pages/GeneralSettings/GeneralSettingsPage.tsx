@@ -35,7 +35,7 @@ const classes = {
     minWidth: 280,
     /*  width: "580px",
     height: "140px", */
-
+    background: "var(--background-device-card)",
     width: "98%",
     marginTop: "6px",
     padding: "5px",
@@ -150,7 +150,7 @@ const GeneralSettingsPage = () => {
                 <span>устройства</span>
               </div>
 
-              <span style={{ fontSize: "30px" }}>0000-0099-6CAC</span>
+              <span style={{ fontSize: "25px", fontWeight: "bold" }}>0000-0099-6CAC</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "11px 0px" }}>
               <div>
@@ -160,7 +160,7 @@ const GeneralSettingsPage = () => {
                 <input style={{ width: "80%" }} />
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "space-between" }}>
               <div>
                 <span style={{ whiteSpace: "nowrap" }}>Пароль удал. управления </span>
               </div>
@@ -171,7 +171,6 @@ const GeneralSettingsPage = () => {
           </div>
         </Paper>
         <Paper style={classes.mainSettings} elevation={24}>
-          {" "}
           <List
             sx={{
               paddingBottom: "0px",
@@ -210,11 +209,11 @@ const GeneralSettingsPage = () => {
               <FormControl sx={{ minWidth: "100%" }} size="small">
                 <Select value={isSuccess} onChange={handleSuccessChange}>
                   <MenuItem value={1}>
-                    <span>Светодиодная индикация вкл. всегда</span>
+                    <span>Светодиодная инд. вкл. всегда</span>
                   </MenuItem>
                   <MenuItem value={2}>
                     {" "}
-                    <span>Светодиодная индикации 30 сек.</span>
+                    <span>Светодиодная инд. 30 сек.</span>
                   </MenuItem>
                 </Select>
               </FormControl>

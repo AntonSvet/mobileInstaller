@@ -119,9 +119,14 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "0px 5px 85px 5px",
+          paddingBottom: "85px",
           marginTop: `${headerHeight + 10}px`,
           visibility: isLoading ? "hidden" : "visible",
+          minWidth: "260px",
+          maxWidth: "500px",
+          width: "100%",
+          marginLeft: "6px",
+          marginRight: "6px",
         }}
       >
         {radioDevice.map((el, index) => {
