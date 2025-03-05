@@ -45,10 +45,20 @@ import { radioDevice } from "../../../../../../utils/mock";
        <div className="setting-rs-card-content">
          {device.zone.map((item: any, i: number) => {
            return (
-             <div style={{ minHeight: "160px" }} key={i} className="setting-rs-card-one">
+             <div style={{ minHeight: "137px" }} key={i} className="setting-rs-card-one">
                <div className="setting-rs-card-inside">
                  <div className="setting-rs-card-block">
-                   <span>Тип</span>
+                   <div className="setting-rs-card-block-row">
+                     <span>№ Зоны</span>
+                     <input width="30px" />
+                   </div>
+                   <div className="setting-rs-card-block-row">
+                     <span>№ Раздела</span>
+                     <input width="30px" />
+                   </div>
+                 </div>
+                 <div className="setting-rs-card-block">
+                   <span style={{ marginRight: "8px" }}>Тип</span>
                    <select style={{ fontSize: "17px" }} name="" id="">
                      <option style={{ fontSize: "17px" }}>Охранная с зад.(Проходная) с контр. взлома</option>
                      <option style={{ fontSize: "17px" }} value="Охранная">
@@ -58,21 +68,11 @@ import { radioDevice } from "../../../../../../utils/mock";
                  </div>
                  <div className="setting-rs-card-block">
                    <div className="setting-rs-card-block-row">
-                     <span>№ Зоны</span>
-                     <input width="30px" />
-                   </div>
-                 </div>
-                 <div className="setting-rs-card-block">
-                   <div className="setting-rs-card-block-row">
-                     <span>№ Раздела</span>
+                     <span>Задержка вход</span>
                      <input width="30px" />
                    </div>
                    <div className="setting-rs-card-block-row">
-                     <span>Задержка (вх)</span>
-                     <input width="30px" />
-                   </div>
-                   <div className="setting-rs-card-block-row">
-                     <span>Вых</span>
+                     <span>Выход</span>
                      <input width="30px" />
                    </div>
                  </div>

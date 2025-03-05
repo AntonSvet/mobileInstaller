@@ -9,6 +9,7 @@
  justify-content: space-evenly;
  width: 100%;
  margin-left: 10px;
+
 }
 
 .setting-rs-card-main-header-inside{
@@ -26,7 +27,7 @@
 }
 .setting-rs-card header{
   display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 position: sticky;
   flex-direction: column;
@@ -35,7 +36,10 @@ position: sticky;
      top: 0;
     z-index: 10;
     border-bottom: 1px solid black;
-   
+   height: 140px;
+}
+.setting-rs-card-content{
+      padding: 0 5px 0 5px;
 }
 .setting-rs-card-font-size span {
    font-size:  clamp(24px, 4vw, 24px);
@@ -55,24 +59,39 @@ position: sticky;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   width: 100%; /* Занимает всю доступную ширину */
-  max-height: 100px;
+  max-height: 200px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 5px;
+  max-width: 400px;
 }
 .setting-rs-card-inside{
  display: flex;
    flex-direction: column;
-   padding: 10px 3px 0px 3px;
+   padding: 10px 3px 10px 3px;
 }
  .setting-rs-card-block{
 display: flex;
  margin: 6px 0px;
+ 
  }
  .setting-rs-card-block-row{
   display: flex;
+  margin-right: 15px;
  }
  .setting-rs-card-block-row input{
-  width: 40px;
+  width: 50px;
+  border-radius:  6px;
+ }
+ .setting-rs-card-block-row span{
+   margin-right: 8px;
+ }
+ .setting-rs-card-block select{
+  font-size: 17px;
+    max-width: 400px;
+    min-width: 307px;
+    width: 100%;
+    border-radius:   6px;
  }
