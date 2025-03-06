@@ -14,9 +14,12 @@ import { radioDevice } from "../../../../utils/mock";
 import useResizeObserver from "../../../../hooks/useResizeObserver";
 import CardDevice from "./CardDevice/CardDevice";
 import RScardDevice from "./CardDevice/RScardDevice";
+import SettingRSCard from "./CardDevice/SettingCard/SettingRSCard";
+import FullScreenSettingDevice from "../../../../utils/FullScreenDialog/FullScreenSettingDevice";
+import { dialogTitlesDevice } from "../../../../const/const";
 
 const MonitoringPage = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
-  const [selectedCard, setSelectedCard] = useState(0);
+  const [openModalSetting, setOpenModalSetting] = useState({ open: false, name: "" });
 
   const headerRef = useRef<HTMLDivElement>(null);
   const headerHeight = useResizeObserver(headerRef);
@@ -43,7 +46,10 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
           visibility: isLoading ? "hidden" : "visible",
         }}
       >
-        <div onClick={() => callback("Общие")} className="device-grid-container">
+        <div
+          onClick={() => setOpenModalSetting({ open: true, name: dialogTitlesDevice.DEVICE_2084 })}
+          className="device-grid-container"
+        >
           <div
             style={{
               display: "flex",
@@ -131,7 +137,12 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
       >
         {radioDevice.map((el, index) => {
           return el.type ? (
-            <RScardDevice key={index} el={el} index={index} />
+            <RScardDevice
+              openSettingModal={() => setOpenModalSetting({ open: true, name: dialogTitlesDevice.EXPANDER_3812 })}
+              key={index}
+              el={el}
+              index={index}
+            />
           ) : (
             <CardDevice key={index} el={el} index={index} />
           );
@@ -139,6 +150,13 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
 
         <FloatingButton />
       </div>
+      {openModalSetting.open && (
+        <FullScreenSettingDevice
+          open={openModalSetting.open}
+          handleClose={() => setOpenModalSetting({ open: false, name: "" })}
+          title={openModalSetting.name}
+        />
+      )}
     </>
   );
 };

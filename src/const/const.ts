@@ -1,4 +1,9 @@
-export const sliderSetting  = {
+export const dialogTitlesDevice = {
+  EXPANDER_3812: "РШ Ю-3812",
+  DEVICE_2084: "Ю-2084",
+};
+
+export const sliderSetting = {
   fullChargeLevel: {
     unit: "",
     min: 0,
@@ -35,24 +40,7 @@ export const sliderSetting  = {
     step: 1,
     max: 10,
   },
-  numberOfFrames: {
-    unit: "",
-    min: 1,
-    step: 1,
-    max: 5,
-  },
-  screenSaver: {
-    unit: "мин",
-    min: 5,
-    step: 5,
-    max: 60,
-  },
-  pingPeriod: {
-    unit: "мин",
-    min: 1,
-    step: 1,
-    max: 10,
-  },
+
   pingPeriodDelta: { unit: "мин", min: 1, step: 1, max: 20 },
   userTimeout: { unit: "мин", min: 10, step: 10, max: 60 },
 };

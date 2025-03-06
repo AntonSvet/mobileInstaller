@@ -2,19 +2,24 @@
 import { radioDevice } from "../../../../../../utils/mock";
  import   "./settingRSCard.css"
  
- const SettingRSCard =  () => {
-    const [device, setDevice] = useState(radioDevice[5]);
- 
+ const SettingRSCard = ({ handleCloseModal }: any) => {
+   const [device, setDevice] = useState(radioDevice[5]);
 
    return (
      <div className="setting-rs-card">
        <header>
          <div>
-           <div className="setting-rs-card-back-arrow">{"<"}</div>
+           <div onClick={handleCloseModal} className="setting-rs-card-back-arrow">
+             {"<"}
+           </div>
            <div className="setting-rs-card-font-size">
              <div className="setting-rs-card-header-position">
-               <span>{device.fullName}</span>
-               <span> {device.name} № {device.number}</span>
+               <span style={{ fontSize: "clamp(25px, 4vw, 24px)", color: "var(--header-text-color" }}>
+                 {device.fullName}
+               </span>
+               <span style={{ fontSize: "clamp(25px, 4vw, 24px)", color: "var(--header-text-color" }}>
+                 {device.name} № {device.number}
+               </span>
              </div>
            </div>
          </div>
@@ -45,7 +50,7 @@ import { radioDevice } from "../../../../../../utils/mock";
        <div className="setting-rs-card-content">
          {device.zone.map((item: any, i: number) => {
            return (
-             <div style={{ minHeight: "137px" }} key={i} className="setting-rs-card-one">
+             <div key={i} className="setting-rs-card-one">
                <div className="setting-rs-card-inside">
                  <div className="setting-rs-card-block">
                    <div className="setting-rs-card-block-row">

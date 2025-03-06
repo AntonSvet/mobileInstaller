@@ -13,7 +13,7 @@ code {
   --background-color-setting-menu: #ebebeb;
   --text-color: #000000;
   --header-text-color: #5b5e5b;
-  --text-size:clamp(20px, 4vw, 26px);
+  --text-size:clamp(20px, 4vw, 24px);
   --box-shadow: 0px 0px 10px rgba(39, 37, 37, 0.6);
   --card-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); 
 }

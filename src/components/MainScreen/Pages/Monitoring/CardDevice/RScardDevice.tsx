@@ -3,7 +3,7 @@ import "./cardDevice.css"; // Подключаем CSS-стили
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 
-const RScardDevice = ({ el, index }: any) => {
+const RScardDevice = ({ openSettingModal, el, index }: any) => {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleClick = () => {
@@ -15,7 +15,7 @@ const RScardDevice = ({ el, index }: any) => {
       style={{ minHeight: "260px" }}
       key={index}
       className={`card ${selectedCard === index ? "selected" : ""}`}
-      onClick={handleClick}
+      onClick={openSettingModal}
     >
       <div className="card-content">
         <div className="status-bar" style={{ background: el.stutusDevice, minHeight: "260px" }}></div>

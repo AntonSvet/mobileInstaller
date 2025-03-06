@@ -1,8 +1,4 @@
-import { makeStyles } from "@mui/material/styles";
-
- 
 export const classes = {
-
   main: {
     padding: "2px 4px",
     display: "flex",
@@ -20,4 +16,4 @@ export const classes = {
     position: "absolute",
     right: "5%",
   },
-}; 
+};

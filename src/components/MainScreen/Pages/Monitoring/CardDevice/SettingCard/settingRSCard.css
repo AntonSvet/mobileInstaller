@@ -24,6 +24,7 @@
 .setting-rs-card-header-position{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .setting-rs-card header{
   display: flex;
@@ -65,7 +66,8 @@ position: sticky;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 5px;
-  max-width: 400px;
+  max-width: 500px;
+  max-height: 180px;
 }
 .setting-rs-card-inside{
  display: flex;

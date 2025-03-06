@@ -7,7 +7,7 @@ import SettingRSCard from "./Pages/Monitoring/CardDevice/SettingCard/SettingRSCa
 const MainScreen = () => {
   const [selectedMenu, setSelectedMenu] = useState("Мониторинг");
   const handleMenu = (el: string) => setSelectedMenu(el);
-  return <SettingRSCard />;
+  //return <SettingRSCard />;
   return (
     <div className="main_screen">
       <HeaderBar selectedMenu={selectedMenu} callback={handleMenu} />
