@@ -28,7 +28,7 @@ const RScardDevice = ({ openSettingModal, el, index }: any) => {
             <div>
               {el.zone.map((item: number, i: number) => {
                 return (
-                  <div className="row">
+                  <div key={i} className="row">
                     <div className="text">
                       <span>
                         Проводная. зона {item}, рзд. {el.section[i]}

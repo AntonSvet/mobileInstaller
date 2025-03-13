@@ -1,5 +1,5 @@
 import { useTheme } from "./../../hooks/useTheme";
-import { BrowserMultiFormatReader } from "@zxing/library";
+import { BarcodeFormat, BrowserMultiFormatReader, DecodeHintType } from "@zxing/library";
 import { useRef, useState, useEffect } from "react";
 import LogoCube from "../../common/LogoCube/LogoCube";
 import MainScreen from "../MainScreen/MainScreen";
@@ -9,8 +9,17 @@ const AuthPage = () => {
   const [scannedData, setScannedData] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState<boolean>(false);
   const { theme } = useTheme();
+  const hints = new Map<DecodeHintType, any>();
+  hints.set(DecodeHintType.POSSIBLE_FORMATS, [
+    BarcodeFormat.EAN_13, // Формат штрих-кода EAN-13
+    BarcodeFormat.CODE_128, // Формат штрих-кода Code 128
+    BarcodeFormat.UPC_A, // Формат штрих-кода UPC-A
+    BarcodeFormat.QR_CODE, // QR-код
+  ]);
+  hints.set(DecodeHintType.TRY_HARDER, true); // Увеличивает точность сканирования
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const codeReader = new BrowserMultiFormatReader();
+  const codeReader = new BrowserMultiFormatReader(hints);
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
@@ -23,7 +32,7 @@ const AuthPage = () => {
         await codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
           if (result) {
             setScannedData(result.getText());
-
+            console.log("Результат сканирования:", result.getText());
             stopScanning();
           }
           if (err && !(err instanceof Error)) {
@@ -53,7 +62,45 @@ const AuthPage = () => {
   if (scannedData) {
     return <MainScreen />;
   }
+  const startCameraWithZoom = async () => {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const videoTrack: any = stream.getVideoTracks()[0];
+    const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
+      zoom?: { min: number; max: number; step: number };
+      focusMode?: string[];
+    };
+    const settings = videoTrack.getSettings();
 
+    console.log("Возможности камеры:", capabilities);
+    console.log("Текущие настройки камеры:", settings);
+    if (capabilities.zoom) {
+      await videoTrack.applyConstraints({
+        advanced: [{ zoom: capabilities.zoom.max / 2 }],
+      });
+    }
+
+    if (videoRef.current) {
+      videoRef.current.srcObject = stream;
+    }
+  };
+  const startCameraWithFocus = async () => {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const videoTrack: any = stream.getVideoTracks()[0];
+    const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
+      zoom?: { min: number; max: number; step: number };
+      focusMode?: string[];
+    };
+    console.log("Возможности камеры:", capabilities);
+    if (capabilities.focusMode && capabilities.focusMode.includes("continuous")) {
+      await videoTrack.applyConstraints({
+        advanced: [{ focusMode: "continuous" }],
+      });
+    }
+
+    if (videoRef.current) {
+      videoRef.current.srcObject = stream;
+    }
+  };
   return (
     <header className="app-header">
       <div className="logo-elesta">
@@ -80,6 +127,14 @@ const AuthPage = () => {
         <button onClick={isScanning ? stopScanning : startScanning} className="qr-scan-button">
           <div className="qr-icon">&#x1F4F7;</div>
           <div className="qr-text">{isScanning ? "Отмена" : "Сканировать QR-код"}</div>
+        </button>
+        <button style={{ bottom: "8%" }} onClick={startCameraWithZoom} className="qr-scan-button">
+          <div className="qr-icon">&#x1F4F7;</div>
+          <div className="qr-text">Зум</div>
+        </button>
+        <button style={{ bottom: "2%" }} onClick={startCameraWithFocus} className="qr-scan-button">
+          <div className="qr-icon">&#x1F4F7;</div>
+          <div className="qr-text">Фокус</div>
         </button>
       </div>
     </header>

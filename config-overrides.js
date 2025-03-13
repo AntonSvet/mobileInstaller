@@ -3,7 +3,7 @@ const path = require("path");
 const { merge } = require('webpack-merge');
 module.exports = {
   webpack: function (config) {
-    config.output.path = path.resolve("../my_spo/src/main/resources/static");
+    config.output.path = path.resolve("../installator/src/main/resources/static");
     config.output.clean = true;
     config.devServer.https = true;
     
