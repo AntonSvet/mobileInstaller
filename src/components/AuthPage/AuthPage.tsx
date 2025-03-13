@@ -26,7 +26,43 @@ const AuthPage = () => {
 
   const startScanning = async () => {
     setIsScanning(true);
+    const startCamera = async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "environment", // Используем заднюю камеру
+        },
+      });
+      const videoTrack = stream.getVideoTracks()[0];
+      const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
+        zoom?: { min: number; max: number; step: number };
+        focusMode?: string[];
+      };
 
+      const constraints: any = {};
+
+      // Настройка зума
+      if ("zoom" in capabilities && capabilities.zoom) {
+        constraints.zoom = capabilities.zoom.max / 2;
+      }
+
+      // Настройка фокусировки
+      if ("focusMode" in capabilities && capabilities.focusMode?.includes("continuous")) {
+        constraints.focusMode = "continuous";
+      }
+
+      // Применяем все параметры за один вызов
+      if (Object.keys(constraints).length > 0) {
+        await videoTrack.applyConstraints({ advanced: [constraints] } as MediaTrackConstraints);
+      }
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+    };
+
+    startCamera().catch((err) => {
+      console.error("Ошибка при запуске камеры:", err);
+    });
     if (videoRef.current) {
       try {
         await codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
@@ -63,7 +99,11 @@ const AuthPage = () => {
     return <MainScreen />;
   }
   const startCameraWithZoom = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: "environment",
+      },
+    });
     const videoTrack: any = stream.getVideoTracks()[0];
     const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
       zoom?: { min: number; max: number; step: number };
@@ -84,7 +124,11 @@ const AuthPage = () => {
     }
   };
   const startCameraWithFocus = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: "environment",
+      },
+    });
     const videoTrack: any = stream.getVideoTracks()[0];
     const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
       zoom?: { min: number; max: number; step: number };
