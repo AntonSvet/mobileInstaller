@@ -40,10 +40,10 @@ const AuthPage = () => {
 
       const constraints: any = {};
 
-      // Настройка зума
+      /*  // Настройка зума
       if ("zoom" in capabilities && capabilities.zoom) {
         constraints.zoom = capabilities.zoom.max / 2;
-      }
+      } */
 
       // Настройка фокусировки
       if ("focusMode" in capabilities && capabilities.focusMode?.includes("continuous")) {
