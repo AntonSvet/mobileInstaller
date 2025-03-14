@@ -101,12 +101,13 @@ const AuthPage = () => {
     const constraints: any = {};
     if ("focusMode" in capabilities && capabilities.focusMode?.includes(mode)) {
       constraints.focusMode = mode;
-
+      alert(`Режим фокусировки "${mode}" `);
       if (Object.keys(constraints).length > 0) {
         await videoTrack.applyConstraints({ advanced: [constraints] } as MediaTrackConstraints);
       }
       console.log(`Режим фокусировки изменен на: ${mode}`);
     } else {
+      alert(`Режим фокусировки "${mode}" не поддерживается камерой.`);
       console.warn(`Режим фокусировки "${mode}" не поддерживается камерой.`);
     }
     if (videoRef.current) {
@@ -128,7 +129,44 @@ const AuthPage = () => {
       }
     }
   };
+  const applyZoomMode = async () => {
+    if (!stream) return;
 
+    const videoTrack: any = stream.getVideoTracks()[0];
+    const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
+      zoom?: { min: number; max: number; step: number };
+      focusMode?: string[];
+    };
+    // Проверка и применение zoom
+
+    if ("zoom" in capabilities && capabilities.zoom) {
+      await videoTrack.applyConstraints({
+        advanced: [{ zoom: capabilities.zoom.max / 2 }],
+      });
+      console.log("Зум установлен на:", capabilities.zoom.max / 2);
+      alert(`Режим фокусировки "${capabilities.zoom.max / 2}" `);
+    } else {
+      alert(`Режим Zoom не поддерживается камерой.`);
+    }
+    if (videoRef.current) {
+      try {
+        await codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
+          if (result) {
+            setScannedData(result.getText());
+            console.log("Результат сканирования:", result.getText());
+            stopScanning();
+          }
+          if (err && !(err instanceof Error)) {
+            console.error(err);
+          }
+        });
+      } catch (error) {
+        console.error("Error in QR code scanning:", error);
+        alert(`Error in QR code scanning: ${error}`);
+        stopScanning();
+      }
+    }
+  };
   if (scannedData) {
     return <MainScreen />;
   }
@@ -164,6 +202,7 @@ const AuthPage = () => {
           <button onClick={() => applyFocusMode("continuous")}>Непрерывная фокусировка</button>
           <button onClick={() => applyFocusMode("single-shot")}>Одноразовая фокусировка</button>
           <button onClick={() => applyFocusMode("manual")}>Ручная фокусировка</button>
+          <button onClick={applyZoomMode}> Zoom</button>
         </div>
       </div>
     </header>
