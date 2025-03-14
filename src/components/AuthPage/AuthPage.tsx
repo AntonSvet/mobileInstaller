@@ -15,15 +15,9 @@ const AuthPage = () => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
-  const [stream, setStream] = useState<MediaStream | null>(null);
   const startScanning = async () => {
     setIsScanning(true);
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    setStream(stream);
 
-    if (videoRef.current) {
-      videoRef.current.srcObject = stream;
-    }
     if (videoRef.current) {
       try {
         await codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
@@ -43,134 +37,19 @@ const AuthPage = () => {
       }
     }
   };
-  useEffect(() => {
-    if (stream) applyMacroMode(); // Применяем настройки для макро-режима
-  }, [stream]);
-  // Применение настроек для макро-режима
-  const applyMacroMode = async () => {
-    if (!stream) return;
 
-    const videoTrack: any = stream.getVideoTracks()[0];
-    const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
-      zoom?: { min: number; max: number; step: number };
-      focusMode?: string[];
-    };
-
-    // Ручная фокусировка на минимальное расстояние
-    if ("focusMode" in capabilities && capabilities.focusMode?.includes("manual")) {
-      await videoTrack.applyConstraints({
-        advanced: [{ focusMode: "manual", focusDistance: 0.1 }],
-      });
-    }
-
-    // Увеличение
-    if ("zoom" in capabilities) {
-      await videoTrack.applyConstraints({
-        advanced: [{ zoom: 2 }], // Увеличение в 2 раза
-      });
-    }
-    alert(videoTrack);
-  };
   const stopScanning = () => {
     codeReader.reset();
     setIsScanning(false);
     videoRef.current = null;
-    if (stream) {
-      stream.getTracks().forEach((track) => track.stop());
-      setStream(null);
-    }
   };
   useEffect(() => {
     return () => {
       if (codeReader) {
         codeReader.reset();
-        if (stream) {
-          stream.getTracks().forEach((track) => track.stop());
-          setStream(null);
-        }
       }
     };
   }, [codeReader]);
-
-  // Применение режима фокусировки
-  const applyFocusMode = async (mode: "continuous" | "single-shot" | "manual") => {
-    console.log("mode", mode);
-    if (!stream) return;
-
-    const videoTrack = stream.getVideoTracks()[0];
-    const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
-      zoom?: { min: number; max: number; step: number };
-      focusMode?: string[];
-    };
-    const constraints: any = {};
-    if ("focusMode" in capabilities && capabilities.focusMode?.includes(mode)) {
-      constraints.focusMode = mode;
-      alert(`Режим фокусировки "${mode}" `);
-      if (Object.keys(constraints).length > 0) {
-        await videoTrack.applyConstraints({ advanced: [constraints] } as MediaTrackConstraints);
-      }
-      console.log(`Режим фокусировки изменен на: ${mode}`);
-    } else {
-      alert(`Режим фокусировки "${mode}" не поддерживается камерой.`);
-      console.warn(`Режим фокусировки "${mode}" не поддерживается камерой.`);
-    }
-    if (videoRef.current) {
-      try {
-        await codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
-          if (result) {
-            setScannedData(result.getText());
-            console.log("Результат сканирования:", result.getText());
-            stopScanning();
-          }
-          if (err && !(err instanceof Error)) {
-            console.error(err);
-          }
-        });
-      } catch (error) {
-        console.error("Error in QR code scanning:", error);
-        alert(`Error in QR code scanning: ${error}`);
-        stopScanning();
-      }
-    }
-  };
-  const applyZoomMode = async (num: number) => {
-    if (!stream) return;
-
-    const videoTrack: any = stream.getVideoTracks()[0];
-    const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
-      zoom?: { min: number; max: number; step: number };
-      focusMode?: string[];
-    };
-    // Проверка и применение zoom
-
-    if ("zoom" in capabilities && capabilities.zoom) {
-      await videoTrack.applyConstraints({
-        advanced: [{ zoom: capabilities.zoom.max / num }],
-      });
-      console.log("Зум установлен на:", capabilities.zoom.max / num);
-      alert(`Режим Zoom установлен на: "${capabilities.zoom.max / num}" `);
-    } else {
-      alert(`Режим Zoom  не поддерживается камерой.`);
-    }
-    if (videoRef.current) {
-      try {
-        await codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
-          if (result) {
-            setScannedData(result.getText());
-            console.log("Результат сканирования:", result.getText());
-            stopScanning();
-          }
-          if (err && !(err instanceof Error)) {
-            console.error(err);
-          }
-        });
-      } catch (error) {
-        console.error("Error in QR code scanning:", error);
-        alert(`Error in QR code scanning: ${error}`);
-        stopScanning();
-      }
-    }
-  };
   if (scannedData) {
     return <MainScreen />;
   }
@@ -202,13 +81,6 @@ const AuthPage = () => {
           <div className="qr-icon">&#x1F4F7;</div>
           <div className="qr-text">{isScanning ? "Отмена" : "Сканировать QR-код"}</div>
         </button>
-        <div style={{ bottom: "1%" }} className="qr-scan-button">
-          <button onClick={() => applyFocusMode("continuous")}>Непрерывная фокусировка</button>
-          <button onClick={() => applyFocusMode("single-shot")}>Одноразовая фокусировка</button>
-          <button onClick={() => applyFocusMode("manual")}>Ручная фокусировка</button>
-          <button onClick={() => applyZoomMode(2)}> Zoom-</button>
-          <button onClick={() => applyZoomMode(1)}> Zoom+</button>
-        </div>
       </div>
     </header>
   );
