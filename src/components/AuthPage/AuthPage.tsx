@@ -20,7 +20,7 @@ const AuthPage = () => {
     setIsScanning(true);
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
     setStream(stream);
-    applyMacroMode(); // Применяем настройки для макро-режима
+
     if (videoRef.current) {
       videoRef.current.srcObject = stream;
     }
@@ -43,6 +43,9 @@ const AuthPage = () => {
       }
     }
   };
+  useEffect(() => {
+    if (stream) applyMacroMode(); // Применяем настройки для макро-режима
+  }, [stream]);
   // Применение настроек для макро-режима
   const applyMacroMode = async () => {
     if (!stream) return;
@@ -66,6 +69,7 @@ const AuthPage = () => {
         advanced: [{ zoom: 2 }], // Увеличение в 2 раза
       });
     }
+    alert(videoTrack);
   };
   const stopScanning = () => {
     codeReader.reset();
@@ -129,7 +133,7 @@ const AuthPage = () => {
       }
     }
   };
-  const applyZoomMode = async () => {
+  const applyZoomMode = async (num: number) => {
     if (!stream) return;
 
     const videoTrack: any = stream.getVideoTracks()[0];
@@ -141,12 +145,12 @@ const AuthPage = () => {
 
     if ("zoom" in capabilities && capabilities.zoom) {
       await videoTrack.applyConstraints({
-        advanced: [{ zoom: capabilities.zoom.max / 2 }],
+        advanced: [{ zoom: capabilities.zoom.max / num }],
       });
-      console.log("Зум установлен на:", capabilities.zoom.max / 2);
-      alert(`Режим фокусировки "${capabilities.zoom.max / 2}" `);
+      console.log("Зум установлен на:", capabilities.zoom.max / num);
+      alert(`Режим Zoom установлен на: "${capabilities.zoom.max / num}" `);
     } else {
-      alert(`Режим Zoom не поддерживается камерой.`);
+      alert(`Режим Zoom  не поддерживается камерой.`);
     }
     if (videoRef.current) {
       try {
@@ -202,7 +206,8 @@ const AuthPage = () => {
           <button onClick={() => applyFocusMode("continuous")}>Непрерывная фокусировка</button>
           <button onClick={() => applyFocusMode("single-shot")}>Одноразовая фокусировка</button>
           <button onClick={() => applyFocusMode("manual")}>Ручная фокусировка</button>
-          <button onClick={applyZoomMode}> Zoom</button>
+          <button onClick={() => applyZoomMode(2)}> Zoom-</button>
+          <button onClick={() => applyZoomMode(1)}> Zoom+</button>
         </div>
       </div>
     </header>
