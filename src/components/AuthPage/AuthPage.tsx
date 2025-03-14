@@ -194,6 +194,7 @@ const AuthPage = () => {
 
      // Применение режима фокусировки
      const applyFocusMode = async (mode: "continuous" | "single-shot" | "manual") => {
+       console.log("mode", mode);
        if (!stream) return;
 
        const videoTrack = stream.getVideoTracks()[0];
@@ -256,11 +257,11 @@ const AuthPage = () => {
           <div className="qr-icon">&#x1F4F7;</div>
           <div className="qr-text">Зум</div>
         </button> */}
-           <button style={{ bottom: "1%" }} onClick={startCameraWithFocus} className="qr-scan-button">
+           <div style={{ bottom: "1%" }} className="qr-scan-button">
              <button onClick={() => applyFocusMode("continuous")}>Непрерывная фокусировка</button>
              <button onClick={() => applyFocusMode("single-shot")}>Одноразовая фокусировка</button>
              <button onClick={() => applyFocusMode("manual")}>Ручная фокусировка</button>
-           </button>
+           </div>
          </div>
        </header>
      );
