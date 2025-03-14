@@ -8,6 +8,9 @@ const AuthPage = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [scannedData, setScannedData] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState<boolean>(false);
+  const [cameras, setCameras] = useState<MediaDeviceInfo[]>([]);
+  const [selectedCamera, setSelectedCamera] = useState<string | null>(null);
+  const [isCameraActive, setIsCameraActive] = useState(false);
   const { theme } = useTheme();
   const hints = new Map<DecodeHintType, any>();
   hints.set(DecodeHintType.POSSIBLE_FORMATS, [
@@ -24,6 +27,19 @@ const AuthPage = () => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
+  const getCameras = async () => {
+    try {
+      await navigator.mediaDevices.getUserMedia({ video: true }); // Запрашиваем доступ
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const cameras = devices.filter((device) => device.kind === "videoinput");
+      setCameras(cameras);
+    } catch (error) {
+      console.error("Ошибка при получении камер:", error);
+    }
+  };
+  useEffect(() => {
+    getCameras();
+  }, []);
   const startScanning = async () => {
     setIsScanning(true);
     const startCamera = async () => {
@@ -39,11 +55,6 @@ const AuthPage = () => {
       };
 
       const constraints: any = {};
-
-      /*  // Настройка зума
-      if ("zoom" in capabilities && capabilities.zoom) {
-        constraints.zoom = capabilities.zoom.max / 2;
-      } */
 
       // Настройка фокусировки
       if ("focusMode" in capabilities && capabilities.focusMode?.includes("continuous")) {
@@ -145,6 +156,39 @@ const AuthPage = () => {
       videoRef.current.srcObject = stream;
     }
   };
+  // Запускаем выбранную камеру
+  const startCamera = async (deviceId: string) => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { deviceId: { exact: deviceId } },
+      });
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+
+      const videoTrack = stream.getVideoTracks()[0];
+      const capabilities = videoTrack.getCapabilities() as MediaTrackCapabilities & {
+        zoom?: { min: number; max: number; step: number };
+        focusMode?: string[];
+      };
+
+      const constraints: any = {};
+
+      if ("focusMode" in capabilities && capabilities.focusMode?.includes("continuous")) {
+        constraints.focusMode = "continuous";
+      }
+
+      if (Object.keys(constraints).length > 0) {
+        await videoTrack.applyConstraints({ advanced: [constraints] } as MediaTrackConstraints);
+      }
+
+      setIsCameraActive(true);
+      setSelectedCamera(deviceId);
+    } catch (error) {
+      console.error("Ошибка при запуске камеры:", error);
+    }
+  };
   return (
     <header className="app-header">
       <div className="logo-elesta">
@@ -172,10 +216,20 @@ const AuthPage = () => {
           <div className="qr-icon">&#x1F4F7;</div>
           <div className="qr-text">{isScanning ? "Отмена" : "Сканировать QR-код"}</div>
         </button>
-        <button style={{ bottom: "8%" }} onClick={startCameraWithZoom} className="qr-scan-button">
+        {isScanning && (
+          <div style={{ bottom: "8%" }} className="qr-scan-button">
+            <button onClick={getCameras}>Обновить список камер</button>
+            {cameras.map((camera) => (
+              <button key={camera.deviceId} onClick={() => startCamera(camera.deviceId)}>
+                {camera.label || `Камера ${camera.deviceId}`}
+              </button>
+            ))}
+          </div>
+        )}
+        {/*     <button style={{ bottom: "8%" }} onClick={startCameraWithZoom} className="qr-scan-button">
           <div className="qr-icon">&#x1F4F7;</div>
           <div className="qr-text">Зум</div>
-        </button>
+        </button> */}
         <button style={{ bottom: "2%" }} onClick={startCameraWithFocus} className="qr-scan-button">
           <div className="qr-icon">&#x1F4F7;</div>
           <div className="qr-text">Фокус</div>
