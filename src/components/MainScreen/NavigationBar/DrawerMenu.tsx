@@ -30,7 +30,7 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
       onClick={toggleDrawer(false)}
     >
       <List>
-        {["Устройства", "Зоны", "Параметры связи", "Коды пользователя"].map((text, index) => (
+        {["Общие", "Устройства", "Зоны", "Параметры связи", "Коды пользователя"].map((text, index) => (
           <div key={index}>
             <ListItem disablePadding>
               <ListItemButton style={{ background: text === selectedMenu ? "#babcc3" : "" }}>

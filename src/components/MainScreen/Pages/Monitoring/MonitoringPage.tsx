@@ -20,6 +20,7 @@ import { dialogTitlesDevice } from "../../../../const/const";
 
 const MonitoringPage = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
   const [openModalSetting, setOpenModalSetting] = useState({ open: false, name: "" });
+  const [isModalNewDevice, setIsModalNewDevice] = useState(false);
 
   const headerRef = useRef<HTMLDivElement>(null);
   const headerHeight = useResizeObserver(headerRef);
@@ -29,7 +30,7 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
     <>
       {isLoading && (
         <div>
-          <ImageLoader progress={progress} />;
+          <ImageLoader progress={progress} title={"Загрузка"} />;
         </div>
       )}
       <div
@@ -119,7 +120,6 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
           </select>
         </div>
       </div>
-
       <div
         style={{
           display: "flex",
@@ -144,17 +144,29 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
               index={index}
             />
           ) : (
-            <CardDevice key={index} el={el} index={index} />
+            <CardDevice
+              openSettingModal={() => setOpenModalSetting({ open: true, name: dialogTitlesDevice.RADIO_5130 })}
+              key={index}
+              el={el}
+              index={index}
+            />
           );
         })}
 
-        <FloatingButton />
+        <FloatingButton openNewDevice={() => setIsModalNewDevice(true)} />
       </div>
       {openModalSetting.open && (
         <FullScreenSettingDevice
           open={openModalSetting.open}
           handleClose={() => setOpenModalSetting({ open: false, name: "" })}
           title={openModalSetting.name}
+        />
+      )}{" "}
+      {isModalNewDevice && (
+        <FullScreenSettingDevice
+          open={isModalNewDevice}
+          handleClose={() => setIsModalNewDevice(false)}
+          title={dialogTitlesDevice.NEW_DEVICE}
         />
       )}
     </>

@@ -5,17 +5,10 @@ import { Transition,   } from "./fullScreenDialog.style";
 import { dialogTitlesDevice } from "../../const/const";
 import SettingRSCard from "../../components/MainScreen/Pages/Monitoring/CardDevice/SettingCard/SettingRSCard";
 import GeneralSettingsPage from "../../components/MainScreen/Pages/GeneralSettings/GeneralSettingsPage";
- 
- 
+import AddNewDevice from "../../components/MainScreen/Pages/Monitoring/AddNewDevices/AddNewDevices";
+import RadioCard from "../../components/MainScreen/Pages/Monitoring/CardDevice/RadioCard/RadioCard";
 
-export default function FullScreenSettingDevice({ open, handleClose, title }:  any) {
-   
-
- 
-  
-  
-
- 
+export default function FullScreenSettingDevice({ open, handleClose, title }: any) {
   const handleCloseModal = () => {
     handleClose && handleClose();
   };
@@ -23,8 +16,12 @@ export default function FullScreenSettingDevice({ open, handleClose, title }:  a
     switch (route) {
       case dialogTitlesDevice.EXPANDER_3812:
         return <SettingRSCard handleCloseModal={handleCloseModal} />;
+      case dialogTitlesDevice.RADIO_5130:
+        return <RadioCard handleCloseModal={handleCloseModal} />;
       case dialogTitlesDevice.DEVICE_2084:
         return <GeneralSettingsPage handleCloseModal={handleCloseModal} />;
+      case dialogTitlesDevice.NEW_DEVICE:
+        return <AddNewDevice handleCloseModal={handleCloseModal} />;
       default:
         return <SettingRSCard />;
     }

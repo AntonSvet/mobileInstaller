@@ -3,11 +3,12 @@ import "./cardDevice.css"; // Подключаем CSS-стили
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 
-const CardDevice = ({ el, index }: any) => {
+const CardDevice = ({ openSettingModal, el, index }: any) => {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleClick = () => {
     setSelectedCard(index);
+    openSettingModal();
   };
 
   return (

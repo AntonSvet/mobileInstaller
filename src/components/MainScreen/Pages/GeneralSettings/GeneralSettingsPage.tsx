@@ -83,44 +83,6 @@ const GeneralSettingsPage = ({ handleCloseModal }: any) => {
   };
   return (
     <div className="setting-device-card">
-      <header>
-        <div>
-          <div onClick={handleCloseModal} className="setting-device-card-back-arrow">
-            {"<"}
-          </div>
-          <div className="setting-device-card-font-size">
-            <div className="setting-device-card-header-position">
-              <span style={{ fontSize: "clamp(25px, 4vw, 24px)", margin: "0px", color: "var(--header-text-color" }}>
-                Юпитер-2084
-              </span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-
-        <div className="setting-device-card-main-header">
-          <div className="setting-device-card-main-header-inside">
-            <div>
-              <span>Корпус - </span>
-              <span>Закрыт </span>
-            </div>
-            <div>
-              <span>Связь с КП - </span>
-              <span>Норма </span>
-            </div>
-          </div>
-          <div className="setting-device-card-main-header-inside">
-            <div>
-              <span>Питание - </span>
-              <span>Норма </span>
-            </div>
-            <div>
-              <span>Версия ПО - </span>
-              <span>1,0а </span>
-            </div>
-          </div>
-        </div>
-      </header>
       <Paper style={classes.mainSettings} elevation={24}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -131,7 +93,7 @@ const GeneralSettingsPage = ({ handleCloseModal }: any) => {
 
             <span style={{ fontSize: "25px", fontWeight: "bold" }}>0000-0099-6CAC</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "11px 0px" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "12px 0px" }}>
             <div>
               <span style={{ whiteSpace: "nowrap" }}>Пароль для конфигурации</span>
             </div>
@@ -198,7 +160,7 @@ const GeneralSettingsPage = ({ handleCloseModal }: any) => {
           <Divider />
         </List>
       </Paper>
-      <Paper style={classes.mainSettings} elevation={24}>
+      {/*  <Paper style={classes.mainSettings} elevation={24}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "3px" }}>
             <div style={{ display: "flex" }}>
@@ -233,7 +195,7 @@ const GeneralSettingsPage = ({ handleCloseModal }: any) => {
             </div>
           </div>
         </div>
-      </Paper>
+      </Paper> */}
     </div>
   );
 };

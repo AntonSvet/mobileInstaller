@@ -1,8 +1,10 @@
 import "./floatingButton.css";  
-
-const FloatingButton: React.FC = () => {
+interface MyComponentProps {
+  openNewDevice: () => void;
+}
+const FloatingButton: React.FC<MyComponentProps> = ({ openNewDevice }) => {
   return (
-    <button className="floating-button">
+    <button onClick={openNewDevice} className="floating-button">
       <span className="plus-icon"></span>
     </button>
   );

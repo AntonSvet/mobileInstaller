@@ -7,6 +7,7 @@ export const rsDevice = [
   {
     id: 0,
     name: "РШ Ю-3812",
+    fullName: "Расширитель шлейфов ",
     number: 1,
     zone: [1, 2, 3, 4, 5, 6, 7, 8],
     section: [1, 2],
@@ -19,7 +20,8 @@ export const rsDevice = [
 export const radioDevice = [
   {
     id: 0,
-    name: "МК-5130",
+    name: "МК Ю-5130",
+    fullName: "Магнито-контактный извещатель",
     number: 1,
     zone: [3, null],
     section: [1, 2],
