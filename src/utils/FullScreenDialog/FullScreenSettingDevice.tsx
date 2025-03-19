@@ -15,7 +15,7 @@ export default function FullScreenSettingDevice({ open, handleClose, title, curr
   const DialogRoute = ({ route }: { route: string }) => {
     switch (route) {
       case dialogTitlesDevice.EXPANDER_3812:
-        return <SettingRSCard handleCloseModal={handleCloseModal} />;
+        return <SettingRSCard handleCloseModal={handleCloseModal} currentDevice={currentDevice} />;
       case dialogTitlesDevice.RADIO_5830:
         return <RadioCard handleCloseModal={handleCloseModal} currentDevice={currentDevice} />;
       case dialogTitlesDevice.RADIO_5130:

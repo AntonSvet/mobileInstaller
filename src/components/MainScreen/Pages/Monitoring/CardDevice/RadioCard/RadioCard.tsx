@@ -35,8 +35,8 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
           </div>
         </div>
         <div className="radio-card-middle-header">
-          <div>
-            <img width="80%;" src={device.image} alt="logo2084" />
+          <div style={{ width: "50%" }}>
+            <img width="100%;" src={device.image} alt="logo2084" />
           </div>
           <div className="radio-card-info">
             <div>
@@ -151,9 +151,9 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
           </div>
         </div>
       </div>
-      <div className="radio-card-delete">
+      <button className="radio-card-delete">
         <span onClick={deleteDevice}>Удалить устройство</span>
-      </div>
+      </button>
     </div>
   );
 };

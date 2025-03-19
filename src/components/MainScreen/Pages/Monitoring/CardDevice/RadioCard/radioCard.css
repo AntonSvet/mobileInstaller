@@ -56,7 +56,8 @@ position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- 
+  width: 50%;
+ align-items: flex-end;
 }
 .radio-card-info span{
    font-size: 18px;
@@ -139,9 +140,13 @@ display: flex;
     border-radius:   6px;
  }
  .radio-card-delete   {
-  margin-top: 20px;
+ padding: 30px;
   display: flex;
  justify-content: center;
+ border: none;
+  width: 100%;
+ background: inherit;
+ cursor: pointer;
  }
  .radio-card-delete span {
   font-size: 24px;

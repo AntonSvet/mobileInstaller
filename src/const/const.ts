@@ -9,7 +9,7 @@ export const dialogTitlesDevice = {
 
 export const devicesList = {
   radio: ["МК Ю-5130", "ИК Ю-5230", "АК Ю-5830", "ИК Ю-5231", "Кл Ю-6270"],
-  rs485: ["РР Ю-3214", "РШ Ю-3811", "РШ-3812"],
+  rs485: ["РШ Ю-3811", "РШ Ю-3812", "РР Ю-3214"],
 };
 export const sliderSetting = {
   fullChargeLevel: {

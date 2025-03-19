@@ -9,6 +9,7 @@ export interface IRadioDevices {
   fullName: string;
   number: number;
   zone: (number | null)[];
+  delay: (number | null)[];
   section: (number | null)[];
   statusZone: (string | null)[];
   stutusDevice: string;
@@ -21,7 +22,8 @@ export interface Irs485Devices {
   fullName: string;
   number: number;
   zone: (number | null)[];
-  section: number[];
+  delay: (number | null)[];
+  section: (number | null)[];
   statusZone: (string | null)[];
   stutusDevice: string;
   image: string;

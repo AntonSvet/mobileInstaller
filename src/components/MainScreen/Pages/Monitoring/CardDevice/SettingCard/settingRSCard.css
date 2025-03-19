@@ -4,28 +4,6 @@
   flex-direction: column;
   position: relative;
 }
- .setting-rs-card-main-header{
- display: flex;
- justify-content: space-evenly;
- width: 100%;
- margin-left: 10px;
-
-}
-
-.setting-rs-card-main-header-inside{
-  
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-    padding-top: 10px;
-
-}
-.setting-rs-card-header-position{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .setting-rs-card header{
   display: flex;
 justify-content: flex-start;
@@ -36,9 +14,56 @@ position: sticky;
   margin-bottom: 10px;
      top: 0;
     z-index: 10;
-    border-bottom: 1px solid black;
-   height: 140px;
+   padding-bottom: 10px;
 }
+.setting-rs-card-top-header{
+  display: flex;
+      display: flex;
+    justify-content: space-between;
+   width: 100%;
+    padding: 0px 5px;
+}
+.setting-rs-back-arrow{
+  
+  font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.setting-rs-header-card-position{
+  display: flex;
+  flex-direction: column;
+  
+  text-align: center;
+}
+.setting-rs-card-middle-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+ 
+}
+.setting-rs-card-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  align-items: flex-end;
+ 
+}
+ .setting-rs-card-bottom-header{
+ display: flex;
+ flex-direction: column;
+   align-items: flex-start;
+ 
+ margin-right: 149px;
+
+}
+ 
+
+ 
+ 
+
 .setting-rs-card-content{
       padding: 0 5px 0 5px;
 }
@@ -60,14 +85,13 @@ position: sticky;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   width: 100%; /* Занимает всю доступную ширину */
-  max-height: 200px;
-  height: 100%;
+ 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 5px;
   max-width: 500px;
-  max-height: 180px;
+  
 }
 .setting-rs-card-inside{
  display: flex;
@@ -84,7 +108,7 @@ display: flex;
   margin-right: 15px;
  }
  .setting-rs-card-block-row input{
-  width: 50px;
+  width: 35px;
   border-radius:  6px;
  }
  .setting-rs-card-block-row span{
@@ -96,4 +120,17 @@ display: flex;
     min-width: 307px;
     width: 100%;
     border-radius:   6px;
+ }
+  .setting-rs-card-delete   {
+ padding: 30px;
+  display: flex;
+ justify-content: center;
+ border: none;
+ width: 100%;
+ background: inherit;
+ cursor: pointer;
+ }
+  .setting-rs-card-delete span {
+  font-size: 24px;
+     color: red;
  }

@@ -19,7 +19,18 @@ const AddRadioDevice: React.FC<ModalProps> = ({ isOpen, onClose, deviceName, ope
     setTimeout(() => {
       setIsNewDevice(false);
       openDeviceCard(deviceName);
-      dispatch(devicesActions.addRadioDevice(radioDevice.find((el) => el.name === deviceName) || radioDevice[0]));
+      const randomId = Math.floor(Math.random() * 100);
+      const selectedDevice = radioDevice.find((el) => el.name === deviceName) || radioDevice[0];
+      const deviceWithRandomId = {
+        ...selectedDevice,
+        id: randomId,
+        number: randomId,
+      };
+      if (!deviceName.includes("РШ")) {
+        dispatch(devicesActions.addRadioDevice(deviceWithRandomId));
+      } else {
+        dispatch(devicesActions.addRSDevice(deviceWithRandomId));
+      }
     }, 2000);
   }
   if (!isOpen) return null;
@@ -33,12 +44,21 @@ const AddRadioDevice: React.FC<ModalProps> = ({ isOpen, onClose, deviceName, ope
           <span>{deviceName}</span>
         </div>
 
-        <div className="new-radio-instruction">
-          <span>1.Для батареи "ER14250" должна быть проведена предварительная депассивация</span>
-          <span>2.Установите элемент питания в датчик </span>
-          <span>3.При зажатой кнопке mode переведите выключатель в положение on. </span>
-          <span>4.Датчик перейдет в режим обучения далее нажать кнопку “Продолжить”. </span>
-        </div>
+        {!deviceName.includes("РШ") ? (
+          <div className="new-radio-instruction">
+            <span>1.Для батареи "ER14250" должна быть проведена предварительная депассивация</span>
+            <span>2.Установите элемент питания в датчик </span>
+            <span>3.При зажатой кнопке mode переведите выключатель в положение on. </span>
+            <span>4.Датчик перейдет в режим обучения далее нажать кнопку “Продолжить”. </span>
+          </div>
+        ) : (
+          <div className="new-radio-instruction">
+            <span>
+              Переведите расширитель в режим конфигурирования, для этого замкните перемычку J1 и нажмите кнопку
+              “Продолжить”
+            </span>
+          </div>
+        )}
       </header>
       <div className="new-radio-content">
         <button onClick={openNewDevice} className="new-radio-one">
