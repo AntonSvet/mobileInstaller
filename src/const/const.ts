@@ -3,10 +3,12 @@ export const dialogTitlesDevice = {
   EXPANDER_3812: "РШ Ю-3812",
   DEVICE_2084: "Ю-2084",
   RADIO_5130: "МК Ю-5130",
+  RADIO_5830: "АК Ю-5830",
+  RADIO_5230: "ИК Ю-5230",
 };
 
 export const devicesList = {
-  radio: ["МК Ю-5130", "ИК Ю-5230", "ИК Ю-5231", "Кл Ю-6270", "АК Ю-5830"],
+  radio: ["МК Ю-5130", "ИК Ю-5230", "АК Ю-5830", "ИК Ю-5231", "Кл Ю-6270"],
   rs485: ["РР Ю-3214", "РШ Ю-3811", "РШ-3812"],
 };
 export const sliderSetting = {

@@ -17,9 +17,11 @@ import RScardDevice from "./CardDevice/RScardDevice";
 import SettingRSCard from "./CardDevice/SettingCard/SettingRSCard";
 import FullScreenSettingDevice from "../../../../utils/FullScreenDialog/FullScreenSettingDevice";
 import { dialogTitlesDevice } from "../../../../const/const";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 
 const MonitoringPage = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
-  const [openModalSetting, setOpenModalSetting] = useState({ open: false, name: "" });
+  const devicesStore = useTypedSelector((state) => state.devices);
+  const [openModalSetting, setOpenModalSetting] = useState({ open: false, name: "", currentDevice: {} });
   const [isModalNewDevice, setIsModalNewDevice] = useState(false);
 
   const headerRef = useRef<HTMLDivElement>(null);
@@ -47,10 +49,7 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
           visibility: isLoading ? "hidden" : "visible",
         }}
       >
-        <div
-          onClick={() => setOpenModalSetting({ open: true, name: dialogTitlesDevice.DEVICE_2084 })}
-          className="device-grid-container"
-        >
+        <div className="device-grid-container">
           <div
             style={{
               display: "flex",
@@ -135,17 +134,17 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
           marginRight: "6px",
         }}
       >
-        {radioDevice.map((el, index) => {
+        {[...devicesStore.radio, ...devicesStore.rs485].map((el, index) => {
           return el.type ? (
             <RScardDevice
-              openSettingModal={() => setOpenModalSetting({ open: true, name: dialogTitlesDevice.EXPANDER_3812 })}
+              openSettingModal={() => setOpenModalSetting({ open: true, name: el.name, currentDevice: el })}
               key={index}
               el={el}
               index={index}
             />
           ) : (
             <CardDevice
-              openSettingModal={() => setOpenModalSetting({ open: true, name: dialogTitlesDevice.RADIO_5130 })}
+              openSettingModal={() => setOpenModalSetting({ open: true, name: el.name, currentDevice: el })}
               key={index}
               el={el}
               index={index}
@@ -158,8 +157,9 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
       {openModalSetting.open && (
         <FullScreenSettingDevice
           open={openModalSetting.open}
-          handleClose={() => setOpenModalSetting({ open: false, name: "" })}
+          handleClose={() => setOpenModalSetting({ open: false, name: "", currentDevice: {} })}
           title={openModalSetting.name}
+          currentDevice={openModalSetting.currentDevice}
         />
       )}{" "}
       {isModalNewDevice && (

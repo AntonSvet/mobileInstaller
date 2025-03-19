@@ -22,7 +22,12 @@ const ModalNewDevices: React.FC<ModalProps> = ({ isOpen, onClose, devices, openD
         </button>
         <div className="modal-content-new-device">
           {devices.map((device, index) => (
-            <button onClick={() => openDevice(device)} className="device-list-new-device" key={index}>
+            <button
+              disabled={index > 2}
+              onClick={() => openDevice(device)}
+              className="device-list-new-device"
+              key={index}
+            >
               <span>{device}</span>
             </button>
           ))}

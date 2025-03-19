@@ -1,5 +1,5 @@
 .radio-card{
-   
+   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -22,8 +22,16 @@ position: sticky;
   display: flex;
       display: flex;
     justify-content: space-between;
-    width: 100%;
+   
     padding: 0px 5px;
+}
+ .radio-card-bottom-header{
+ display: flex;
+ flex-direction: column;
+   align-items: flex-start;
+ 
+ margin-right: 65px;
+
 }
 .radio-card-back-arrow{
   
@@ -32,7 +40,12 @@ position: sticky;
     cursor: pointer;
     padding-left: 5px;
 }
-
+.radio-header-position{
+  display: flex;
+  flex-direction: column;
+  
+  text-align: center;
+}
 .radio-card-middle-header{
   display: flex;
   justify-content: space-between;
@@ -71,36 +84,17 @@ position: sticky;
    margin-right: 8px;
  }
 
- .setting-rs-card-bottom-header{
- display: flex;
- flex-direction: column;
-   align-items: flex-start;
- width: 100%;
- margin-left: 30px;
 
-}
 
-.setting-rs-card-main-header-inside{
-  
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-    padding-top: 10px;
+ 
+ 
 
-}
-.setting-rs-card-header-position{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.setting-rs-card-content{
+.radio-card-content{
       padding: 0 5px 0 5px;
 }
  
 
-.setting-rs-card-one{
+.radio-card-one{
    background: var(--background-device-card);
   border-radius: 8px;
   box-shadow: var(--card-shadow); /* Тень */
@@ -108,7 +102,7 @@ position: sticky;
   cursor: pointer;
   width: 100%; /* Занимает всю доступную ширину */
   max-height: 200px;
-  height: 100%;
+ 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -127,27 +121,27 @@ display: flex;
  justify-content: space-between;
  padding-right: 10px; 
  }
- .setting-rs-card-block-row{
+ .radio-card-block-row{
   display: flex;
   margin-right: 15px;
   
  }
- .setting-rs-card-block-row input{
+ .radio-card-block-row input{
   width: 35px;
   border-radius:  6px;
  }
- .setting-rs-card-block-row span{
+ .radio-card-block-row span{
    margin-right: 8px;
  }
- .setting-rs-card-block select{
+ .radio-card-block select{
   font-size: 17px;
-    max-width: 400px;
-    min-width: 307px;
-    width: 100%;
+    
     border-radius:   6px;
  }
  .radio-card-delete   {
   margin-top: 20px;
+  display: flex;
+ justify-content: center;
  }
  .radio-card-delete span {
   font-size: 24px;

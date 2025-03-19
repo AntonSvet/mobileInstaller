@@ -25,19 +25,24 @@ const RScardDevice = ({ openSettingModal, el, index }: any) => {
               <img src={el.image} alt={el.name} />
             </div>
 
-            <div>
-              {el.zone.map((item: number, i: number) => {
-                return (
-                  <div key={i} className="row">
-                    <div className="text">
-                      <span>
-                        Проводная. зона {item}, рзд. {el.section[i]}
-                      </span>
+            <div className="device-content">
+              <div className="text">
+                <span style={{ fontWeight: "700", fontSize: "17px" }}>{el.fullName}</span>
+              </div>
+              <div>
+                {el.zone.map((item: number, i: number) => {
+                  return (
+                    <div key={i} className="row">
+                      <div className="text">
+                        <span>
+                          Проводная. зона {item}, рзд. {el.section[i]}
+                        </span>
+                      </div>
+                      <div className="status-indicator" style={{ background: el.statusZone[i] }}></div>
                     </div>
-                    <div className="status-indicator" style={{ background: el.statusZone[i] }}></div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div className="footer" style={{ marginLeft: "8px" }}>

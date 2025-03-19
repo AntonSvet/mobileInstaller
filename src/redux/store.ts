@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createAPI } from "./http/http";
 import { AxiosInstance } from "axios";
- 
+import { devicesReducer } from "./reducers/devices/devicesReducer";
+
 export const createReduxStore = () => {
   return configureStore({
     reducer: rootReducer,
@@ -11,7 +12,7 @@ export const createReduxStore = () => {
           extraArgument: extraArg,
         },
         serializableCheck: false,
-      }) 
+      }),
   });
 };
 export interface ThunkExtraArg {
@@ -22,13 +23,13 @@ export interface ThunkConfig {
   dispatch: AppDispatch;
   state: RootState;
 }
- 
-export const $api = createAPI( );
+
+export const $api = createAPI();
 const extraArg: ThunkExtraArg = {
   api: $api,
 };
 const rootReducer = combineReducers({
- 
+  devices: devicesReducer,
 });
 const store = createReduxStore();
 export default store;

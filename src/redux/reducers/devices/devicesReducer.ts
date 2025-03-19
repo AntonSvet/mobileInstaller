@@ -1,31 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IDevices } from "./devices.types";
+import { IDevices, IRadioDevices, Irs485Devices } from "./devices.types";
 
 export const initialState: IDevices = {
-  radio: [
-    {
-      id: 0,
-      name: "МК-5130",
-      number: 1,
-      zone: [3, null],
-      section: [1, 2],
-      statusZone: ["green", null],
-      stutusDevice: "white",
-      image: "",
-    },
-  ],
-  rs485: [
-    {
-      id: 3,
-      name: "АК Ю-5830",
-      number: 4,
-      zone: [7, 8],
-      section: [2, 2],
-      statusZone: ["grey", "grey"],
-      stutusDevice: "white",
-      image: "",
-    },
-  ],
+  radio: [],
+  rs485: [],
 };
 
 const devicesSlice = createSlice({
@@ -35,9 +13,18 @@ const devicesSlice = createSlice({
     getCamerasStatuses(state, action: PayloadAction<IDevices>) {
       return { ...state, ...action.payload };
     },
-    /* addRadioDevice(state, action: PayloadAction<IDevices>) {
-      return { ...state,  radio: [...state.radio, action.payload };
-    }, */
+    addRadioDevice(state, action: PayloadAction<IRadioDevices>) {
+      return { ...state, radio: [...state.radio, action.payload] };
+    },
+    addRSDevice(state, action: PayloadAction<Irs485Devices>) {
+      return { ...state, rs485: [...state.rs485, action.payload] };
+    },
+    removeRadioDevice(state, action: PayloadAction<number>) {
+      return { ...state, radio: state.radio.filter((el) => el.id !== action.payload) };
+    },
+    removeRSDevice(state, action: PayloadAction<number>) {
+      return { ...state, rs485: state.rs485.filter((el) => el.id !== action.payload) };
+    },
   },
 });
 

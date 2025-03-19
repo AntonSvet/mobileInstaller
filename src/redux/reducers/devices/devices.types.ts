@@ -6,20 +6,24 @@ export interface IDevices {
 export interface IRadioDevices {
   id: number;
   name: string;
+  fullName: string;
   number: number;
   zone: (number | null)[];
-  section: [1, 2];
+  section: (number | null)[];
   statusZone: (string | null)[];
   stutusDevice: string;
   image: string;
+  type?: string;
 }
 export interface Irs485Devices {
   id: number;
   name: string;
+  fullName: string;
   number: number;
   zone: (number | null)[];
   section: number[];
   statusZone: (string | null)[];
   stutusDevice: string;
   image: string;
+  type?: string;
 }

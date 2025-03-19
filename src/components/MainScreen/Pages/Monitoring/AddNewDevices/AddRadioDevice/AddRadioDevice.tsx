@@ -1,20 +1,25 @@
  import { useState } from "react";
 import ImageLoader from "../../../../../../common/ImageLoader/ImageLoader";
 import "./addRadioDevice.css";
- interface ModalProps {
-   isOpen: boolean;
-   onClose: () => void;
-   openDeviceCard: (el: string) => void;
-   deviceName: string;
- }
+import { useTypedDispatch } from "../../../../../../hooks/useTypedDispatch";
+import { devicesActions } from "../../../../../../redux/reducers/devices/devicesReducer";
+import { radioDevice } from "../../../../../../utils/mock";
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  openDeviceCard: (el: string) => void;
+  deviceName: string;
+}
 
 const AddRadioDevice: React.FC<ModalProps> = ({ isOpen, onClose, deviceName, openDeviceCard }) => {
   const [isNewDevice, setIsNewDevice] = useState<boolean>(false);
+  const dispatch = useTypedDispatch();
   function openNewDevice() {
     setIsNewDevice(true);
     setTimeout(() => {
       setIsNewDevice(false);
       openDeviceCard(deviceName);
+      dispatch(devicesActions.addRadioDevice(radioDevice.find((el) => el.name === deviceName) || radioDevice[0]));
     }, 2000);
   }
   if (!isOpen) return null;

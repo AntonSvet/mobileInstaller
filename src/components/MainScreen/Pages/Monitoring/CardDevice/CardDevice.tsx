@@ -25,34 +25,41 @@ const CardDevice = ({ openSettingModal, el, index }: any) => {
               )}
             </div>
 
-            <div>
-              <div className="row">
-                <div className="text">
-                  {el.name !== "Кл Ю-6270" ? (
-                    <span>
-                      Беспровод. зона {el.zone[0]}, рзд. {el.section[0]}
-                    </span>
-                  ) : (
-                    <span>
-                      Радио клавиатура {el.zone[0]}, рзд. {el.section[0]}
-                    </span>
-                  )}
-                </div>
-                <div className="status-indicator" style={{ background: el.statusZone[0] }}></div>
+            <div className="device-content">
+              <div className="text">
+                <span style={{ fontWeight: "700", fontSize: "17px" }}>{el.fullName}</span>
               </div>
-              <div className="row">
-                <div className="text">
-                  {el.zone[1] === null ? (
-                    <span className="additional-zone">Дополн. зона {el.zone[1]}</span>
-                  ) : el.zone[1] ? (
-                    <span>
-                      Дополн. зона {el.zone[1]}, рзд {el.section[1]}
-                    </span>
-                  ) : (
-                    <span></span>
+              <div>
+                <div className="row">
+                  <div className="text">
+                    {el.name !== "Кл Ю-6270" ? (
+                      <span>
+                        Беспровод. зона {el.zone[0]}, рзд. {el.section[0]}
+                      </span>
+                    ) : (
+                      <span>
+                        Радио клавиатура {el.zone[0]}, рзд. {el.section[0]}
+                      </span>
+                    )}
+                  </div>
+                  <div className="status-indicator" style={{ background: el.statusZone[0] }}></div>
+                </div>
+                <div className="row">
+                  <div className="text">
+                    {el.zone[1] === null ? (
+                      <span className="additional-zone">Дополн. зона {el.zone[1]}</span>
+                    ) : el.zone[1] ? (
+                      <span>
+                        Дополн. зона {el.zone[1]}, рзд {el.section[1]}
+                      </span>
+                    ) : (
+                      <span></span>
+                    )}
+                  </div>
+                  {el.statusZone[1] && (
+                    <div className="status-indicator" style={{ background: el.statusZone[1] }}></div>
                   )}
                 </div>
-                {el.statusZone[1] && <div className="status-indicator" style={{ background: el.statusZone[1] }}></div>}
               </div>
             </div>
           </div>

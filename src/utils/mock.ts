@@ -3,21 +3,9 @@ import device5830 from "../img/device/5830.png";
 import device5230 from "../img/device/5230.png";
 import device6270 from "../img/device/6270.png";
 import device3812 from "../img/device/3812.png";
-export const rsDevice = [
-  {
-    id: 0,
-    name: "РШ Ю-3812",
-    fullName: "Расширитель шлейфов ",
-    number: 1,
-    zone: [1, 2, 3, 4, 5, 6, 7, 8],
-    section: [1, 2],
-    statusZone: ["green", null],
-    stutusDevice: "white",
-    image: device5130,
-    type: "rs",
-  },
-];
-export const radioDevice = [
+import { IRadioDevices } from "../redux/reducers/devices/devices.types";
+
+export const radioDevice: IRadioDevices[] = [
   {
     id: 0,
     name: "МК Ю-5130",
@@ -32,6 +20,7 @@ export const radioDevice = [
   {
     id: 1,
     name: "АК Ю-5830",
+    fullName: "Аккустический извещатель",
     number: 2,
     zone: [4, 5],
     section: [2, 2],
@@ -42,6 +31,7 @@ export const radioDevice = [
   {
     id: 2,
     name: "ИК Ю-5230",
+    fullName: "Объёмный извещатель",
     number: 3,
     zone: [6],
     section: [2],
@@ -52,6 +42,7 @@ export const radioDevice = [
   {
     id: 3,
     name: "АК Ю-5830",
+    fullName: "Аккустический  извещатель",
     number: 4,
     zone: [7, 8],
     section: [2, 2],
@@ -62,6 +53,7 @@ export const radioDevice = [
   {
     id: 4,
     name: "Кл Ю-6270",
+    fullName: "Радио клавиатура",
     number: 5,
     zone: [],
     section: [3],
@@ -84,7 +76,7 @@ export const radioDevice = [
   {
     id: 6,
     name: "РШ Ю-3812",
-    fullName: "Расширитель шлейфов Ю-3812",
+    fullName: "Расширитель шлейфов",
     number: 2,
     zone: [17, 18, 19, 20, 21, 22, 23, 24],
     section: [1, 2, 3, 4, 5, 6, 7, 8],
