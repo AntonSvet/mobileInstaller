@@ -1,32 +1,38 @@
-import { CardActionArea } from "@mui/material";
-import Card from "@mui/material/Card";
-import "./monitoringPage.css";
-import device6270 from "../../../../img/device/6270.png";
 import device2084 from "../../../../img/device/s_fonom_2084.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavigationButtons from "./NavigationButtons/NavigationButtons";
 import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
 import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 import FloatingButton from "./FloatingButton/FloatingButton";
 import ImageLoader from "../../../../common/ImageLoader/ImageLoader";
 import useImageLoader from "../../../../hooks/useImageLoader";
-import { radioDevice } from "../../../../utils/mock";
 import useResizeObserver from "../../../../hooks/useResizeObserver";
 import CardDevice from "./CardDevice/CardDevice";
 import RScardDevice from "./CardDevice/RScardDevice";
-import SettingRSCard from "./CardDevice/SettingCard/SettingRSCard";
 import FullScreenSettingDevice from "../../../../utils/FullScreenDialog/FullScreenSettingDevice";
 import { dialogTitlesDevice } from "../../../../const/const";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
-
-const MonitoringPage = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
+import { useTypedDispatch } from "../../../../hooks/useTypedDispatch";
+import { devicesActions } from "../../../../redux/reducers/devices/devicesReducer";
+import { IRadioDevices } from "../../../../redux/reducers/devices/devices.types";
+import "./monitoringPage.css";
+const MonitoringPage = () => {
   const devicesStore = useTypedSelector((state) => state.devices);
+  const addedDevice = useTypedSelector((state) => state.devices.addedDevice);
   const [openModalSetting, setOpenModalSetting] = useState({ open: false, name: "", currentDevice: {} });
   const [isModalNewDevice, setIsModalNewDevice] = useState(false);
-
+  const dispatch = useTypedDispatch();
   const headerRef = useRef<HTMLDivElement>(null);
   const headerHeight = useResizeObserver(headerRef);
   const { progress, isLoading } = useImageLoader(document.querySelectorAll("img"));
+  useEffect(() => {
+    if (addedDevice !== null) {
+      const currentDevice = [...devicesStore.radio, ...devicesStore.rs485].find((el) => addedDevice.id === el.id);
+      setOpenModalSetting({ open: true, name: addedDevice.name, currentDevice: currentDevice as IRadioDevices });
+
+      dispatch(devicesActions.resetDevice());
+    }
+  }, [addedDevice, devicesStore.radio, devicesStore.rs485, dispatch]);
 
   return (
     <>
@@ -152,7 +158,11 @@ const MonitoringPage = ({ route, callback }: { route: string; callback: (el: str
           );
         })}
 
-        <FloatingButton openNewDevice={() => setIsModalNewDevice(true)} />
+        <FloatingButton
+          openNewDevice={() => {
+            setIsModalNewDevice(true);
+          }}
+        />
       </div>
       {openModalSetting.open && (
         <FullScreenSettingDevice

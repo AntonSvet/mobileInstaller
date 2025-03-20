@@ -4,11 +4,8 @@ import {
   FormControl,
   Grid,
   Input,
-  InputLabel,
   List,
   ListItem,
-  ListItemText,
-  ListSubheader,
   MenuItem,
   Paper,
   Select,
@@ -16,10 +13,7 @@ import {
   Slider,
   Typography,
 } from "@mui/material";
-import CustomizedSwitches from "../../../../common/CustomizedSwitches/CustomizedSwitches";
-import InputCustomized from "../../../../common/InputCustomized/InputCustomized";
-import NonLinearSlider from "../../../../common/NonLinearSlider/NonLinearSlider";
-import { sliderSetting } from "../../../../const/const";
+
 import { VolumeUp } from "@mui/icons-material";
 import { useState } from "react";
 import "./generalSettings.css";
@@ -57,9 +51,7 @@ const classes = {
     height: 37,
   },
 };
-function handleSettingsChange() {
-  console.log("Click");
-}
+
 const GeneralSettingsPage = ({ handleCloseModal }: any) => {
   const [isSuccess, setSuccess] = useState("1");
   const handleSuccessChange = (event: SelectChangeEvent) => {

@@ -1,31 +1,32 @@
  
 import { WithErrorBoundary } from "../../../../utils/ErrorBoundary/ErrorBoundary";
- 
 import MonitoringPage from "../Monitoring/MonitoringPage";
-import LanPage from "../LAN/LanPage";
+
 import ZonesPage from "../Zones/ZonesPage";
 import GeneralSettingsPage from "../GeneralSettings/GeneralSettingsPage";
+import ParametersPage from "../Parameters/ParametersPage";
+import UserCodes from "../UserCodes/UserCodes";
 
-const LanPageWithErrorBoundary = WithErrorBoundary(LanPage);
-const ZonesPageWithErrorBoundary = WithErrorBoundary(ZonesPage);
 const GeneralSettingsPageWithErrorBoundary = WithErrorBoundary(GeneralSettingsPage);
-//const MonitoringPageWithErrorBoundary = WithErrorBoundary(MonitoringPage);
+const MonitoringPageWithErrorBoundary = WithErrorBoundary(MonitoringPage);
+const ZonesPageWithErrorBoundary = WithErrorBoundary(ZonesPage);
+const ParametersPageWithErrorBoundary = WithErrorBoundary(ParametersPage);
+const UserCodesWithErrorBoundary = WithErrorBoundary(UserCodes);
 
 const PageRoute = ({ route, callback }: { route: string; callback: (el: string) => void }) => {
   switch (route) {
-    case "Мониторинг":
-      return <MonitoringPage route={route} callback={callback} />;
     case "Общие":
       return <GeneralSettingsPageWithErrorBoundary />;
-
+    case "Устройства":
+      return <MonitoringPageWithErrorBoundary />;
     case "Зоны":
       return <ZonesPageWithErrorBoundary />;
     case "Параметры связи":
-      return <LanPageWithErrorBoundary />;
+      return <ParametersPageWithErrorBoundary />;
     case "Коды пользователя":
-      return <LanPageWithErrorBoundary />;
+      return <UserCodesWithErrorBoundary />;
     default:
-      return <MonitoringPage route={route} callback={callback} />;
+      return <MonitoringPageWithErrorBoundary />;
   }
 };
 export default PageRoute;

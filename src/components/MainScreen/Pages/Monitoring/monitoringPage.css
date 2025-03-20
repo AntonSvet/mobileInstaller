@@ -15,12 +15,10 @@
       align-items: center;
       background: var(--background-color);
       justify-content: center;
-      
-       
+     
     }
 
-   
-    .native-select {
+.native-select {
       font-size: var(--text-size); 
       text-align: center;  
        background: var(--background-color);

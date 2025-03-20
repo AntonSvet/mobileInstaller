@@ -1,4 +1,4 @@
-/* Основные стили для модального окна */
+ 
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -13,7 +13,12 @@
   opacity: 0;
   animation: fadeIn 0.3s ease-in-out forwards;
 }
-
+.loader-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1rem auto;
+}
 /* Анимация появления */
 @keyframes fadeIn {
   from {
@@ -67,9 +72,18 @@
   }
 }
 
-/* Стили для текста */
+ 
 .modal-content p {
   margin: 0;
   font-size: 1.2rem;
   color: #333;
+}
+.loader-text {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
 }

@@ -1,6 +1,7 @@
 export interface IDevices {
   radio: IRadioDevices[];
   rs485: Irs485Devices[];
+  addedDevice: Irs485Devices | IRadioDevices | null;
 }
 
 export interface IRadioDevices {

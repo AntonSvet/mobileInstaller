@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "./cardDevice.css"; // Подключаем CSS-стили
-import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
-import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
-
+ 
 const RScardDevice = ({ openSettingModal, el, index }: any) => {
   const [selectedCard, setSelectedCard] = useState(null);
 

@@ -1,6 +1,5 @@
- import { useState } from "react";
-import { radioDevice } from "../../../../../../utils/mock";
- import   "./settingRSCard.css"
+import { useState } from "react";
+import "./settingRSCard.css";
 import { devicesActions } from "../../../../../../redux/reducers/devices/devicesReducer";
 import { useTypedDispatch } from "../../../../../../hooks/useTypedDispatch";
 import icon1 from "../../../../../../img/icon/image 52.png";
@@ -16,6 +15,7 @@ const SettingRSCard = ({ handleCloseModal, currentDevice }: any) => {
     dispatch(devicesActions.removeRSDevice(device.id));
     handleCloseModal();
   }
+
   return (
     <div className="setting-rs-card">
       <header>
@@ -117,6 +117,5 @@ const SettingRSCard = ({ handleCloseModal, currentDevice }: any) => {
     </div>
   );
 };
- 
- export default SettingRSCard;
- 
+
+export default SettingRSCard;

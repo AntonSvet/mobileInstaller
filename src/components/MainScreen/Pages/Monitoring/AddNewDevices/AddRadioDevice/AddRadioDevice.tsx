@@ -67,7 +67,7 @@ const AddRadioDevice: React.FC<ModalProps> = ({ isOpen, onClose, deviceName, ope
           </div>
         </button>
       </div>
-      {isNewDevice && <ImageLoader title={"Поиск устройства"} />}
+      {isNewDevice && <ImageLoader progress={42} title={"Поиск устройства"} />}
     </div>
   );
 };
