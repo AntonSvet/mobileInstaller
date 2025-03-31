@@ -4,17 +4,17 @@ import SettingsMenu from "./SettingsMenu";
 
 const HeaderBar = ({ selectedMenu, callback }: { selectedMenu: string; callback: (el: string) => void }) => {
   return (
-    <header className="header">
-      <div className="logo">
-        <DrawerMenu selectedMenu={selectedMenu} callback={callback} />
-      </div>
-      <div className="logo">
-        <span style={{ fontSize: "clamp(25px, 4vw, 24px)", margin: "0px", color: "var(--header-text-color" }}>
+    <div className="header-container">
+      <header className="header">
+        <div className="drawer-menu">
+          <DrawerMenu selectedMenu={selectedMenu} callback={callback} />
+        </div>
+        <div className="logo">
           Юпитер-2084
-        </span>
-      </div>
-      <SettingsMenu />
-    </header>
+        </div>
+        <SettingsMenu />
+      </header>
+    </div>
   );
 };
 

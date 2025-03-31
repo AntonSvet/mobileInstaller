@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
- 
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -20,7 +19,7 @@ function DrawerMenu({ selectedMenu, callback }: { selectedMenu: string; callback
   const DrawerList = (
     <Box
       sx={{
-        paddingTop: "15px",
+
         height: "100vh",
         color: "var( --text-color)",
         width: "100%",

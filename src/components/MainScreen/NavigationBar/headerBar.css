@@ -1,4 +1,11 @@
 /* Общие стили для header */
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  align-items: center;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -7,13 +14,19 @@
   position: fixed;
   z-index: 1000;
   background: var(--background-header);
-   
+  max-width: 500px;
 }
 
 /* Стили для лого */
+.drawer-menu {
+  padding: 10px 0px 0px 3px;
+  display: flex;
+  align-items: center;
+}
+
 .logo {
-  font-size: 24px;
-  
+  font-size: clamp(23px, 5vw, 28px);
+  color: var(--header-text-color);
 }
 
 /* Стили для меню */

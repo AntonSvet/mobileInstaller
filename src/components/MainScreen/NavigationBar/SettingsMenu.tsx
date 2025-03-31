@@ -19,6 +19,7 @@ import Restart from "@mui/icons-material/RestartAltRounded";
 import Display from "@mui/icons-material/DisplaySettingsTwoTone";
 import LogoutIcon from "@mui/icons-material/LogoutTwoTone";
 import ThemeButton from "../../../common/ThemeButton/ThemeButton";
+import { IoMdSettings } from "react-icons/io";
 export default function SettingsMenu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [openAppModal, setOpenAppModal] = useState(false);
@@ -42,7 +43,11 @@ export default function SettingsMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Settings sx={{ width: 32, height: 32 }}>M</Settings>
+            {IoMdSettings && (
+              <IoMdSettings
+                style={{ fontSize: "clamp(25px, 4vw, 24px)", margin: "0px", color: "var(--header-text-color)" }}
+              />
+            )}
           </IconButton>
         </Tooltip>
       </Box>

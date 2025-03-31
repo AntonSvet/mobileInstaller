@@ -1,14 +1,15 @@
- import { useState } from "react";
+import { useState } from "react";
 import { radioDevice } from "../../../../../../utils/mock";
- import "./radioCard.css";
-import SaveTwoToneIcon from "@mui/icons-material/SaveTwoTone";
- import icon1 from "../../../../../../img/icon/image 33.png"
- import icon2 from "../../../../../../img/icon/image 44.png"
- import icon3 from "../../../../../../img/icon/image 46.png"
- import icon4 from "../../../../../../img/icon/image 47.png"
- import icon5 from "../../../../../../img/icon/image 51.png"
+import "./radioCard.css";
 import { devicesActions } from "../../../../../../redux/reducers/devices/devicesReducer";
 import { useTypedDispatch } from "../../../../../../hooks/useTypedDispatch";
+import { GiBattery50 } from "react-icons/gi";
+import { FaTemperatureEmpty } from "react-icons/fa6";
+import { FaSignal } from "react-icons/fa";
+import { RiRouterLine } from "react-icons/ri";
+import { TbDeviceIpadCode } from "react-icons/tb";
+import { FaRegSave } from "react-icons/fa";
+import { IoIosArrowBack } from "react-icons/io";
 const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
   const [device, setDevice] = useState(currentDevice);
   const dispatch = useTypedDispatch();
@@ -21,17 +22,15 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
       <header>
         <div className="radio-card-top-header">
           <div onClick={handleCloseModal} className="radio-card-back-arrow">
-            {"<"}
+            <IoIosArrowBack className="radio-card-top-header-icons" />
           </div>
 
           <div className="radio-header-position">
-            <span style={{ fontSize: "clamp(25px, 4vw, 24px)", color: "var(--header-text-color" }}>
-              {device.fullName}
-            </span>
+            <span >{device.fullName}</span>
           </div>
 
-          <div style={{ paddingRight: "5px" }}>
-            <SaveTwoToneIcon fontSize="large" />
+          <div className="radio-card-save">
+            <FaRegSave className="radio-card-top-header-icons" />
           </div>
         </div>
         <div className="radio-card-middle-header">
@@ -53,29 +52,29 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
         </div>
 
         <div className="radio-card-bottom-header">
-          <div>
-            <img src={icon5} alt="logo2084" />
+          <div className="radio-card-indicators">
+            <TbDeviceIpadCode className="icons" />
             <span>Корпус - </span>
             <span>Закрыт </span>
           </div>
-          <div>
-            <img src={icon1} alt="logo2084" />
+          <div className="radio-card-indicators">
+            <GiBattery50 className="icons" />
             <span>Батарея - 90%</span>
             <span>Норма </span>
           </div>
 
-          <div>
-            <img src={icon2} alt="logo2084" />
+          <div className="radio-card-indicators">
+            <FaSignal className="icons" />
             <span>Уровень сигнала - </span>
             <span>5 (хороший) </span>
           </div>
-          <div>
-            <img src={icon3} alt="logo2084" />
+          <div className="radio-card-indicators">
+            <RiRouterLine className="icons" />
             <span>Ретранслятор - </span>
             <span>1-2-3 </span>
           </div>
-          <div>
-            <img src={icon4} alt="logo2084" />
+          <div className="radio-card-indicators">
+            <FaTemperatureEmpty className="icons" />
             <span>Температура - </span>
             <span>22°С </span>
           </div>
@@ -96,16 +95,14 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
                     <input />
                   </div>
                   <div>
-                    <input style={{ width: "120px", borderRadius: "6px" }} placeholder="Псевдоним" />
+                    <input className="radio-card-block-custom-input" placeholder="Псевдоним" />
                   </div>
                 </div>
                 <div className="radio-card-block">
                   <span style={{ marginRight: "8px" }}>Тип</span>
-                  <select style={{ fontSize: "17px" }} name="" id="">
-                    <option style={{ fontSize: "17px" }}>Охранная с зад.(Проходная) с контр. взлома</option>
-                    <option style={{ fontSize: "17px" }} value="Охранная">
-                      Охранная
-                    </option>
+                  <select name="" id="">
+                    <option>Охранная с зад.(Проходная) с контр. взлома</option>
+                    <option value="Охранная">Охранная</option>
                   </select>
                 </div>
                 {item && (
@@ -114,8 +111,8 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
                       <span>Задержка вход</span>
                       <input width="30px" />
                     </div>
-                    <div className="radio-card-block-row">
-                      <span>Выход</span>
+                    <div className="radio-card-block-row" >
+                      <span>Задержка выход</span>
                       <input width="30px" />
                     </div>
                   </div>
@@ -130,22 +127,20 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
               <div>
                 <span style={{ marginRight: "8px" }}>Элемент питания</span>
               </div>
-              <select style={{ fontSize: "17px" }} name="" id="">
-                <option style={{ fontSize: "17px" }}>ER14250(3,6 В)</option>
-                <option style={{ fontSize: "17px" }} value="Охранная">
-                  ER14250
-                </option>
+              <select name="" id="">
+                <option>ER14250(3,6 В)</option>
+                <option value="Охранная">ER14250</option>
               </select>
             </div>
 
             <div className="radio-card-checkbox-block">
               <div className="radio-card-checkbox-row">
                 <span>Контролировать датчик саботажа</span>
-                <input type="checkbox" width="30px" />
+                <input type="checkbox" />
               </div>
               <div className="radio-card-checkbox-row">
                 <span>Контролировать датчик вскрытия</span>
-                <input type="checkbox" width="30px" />
+                <input type="checkbox" />
               </div>
             </div>
           </div>
@@ -157,6 +152,5 @@ const RadioCard = ({ handleCloseModal, currentDevice }: any) => {
     </div>
   );
 };
- 
- export default RadioCard;
- 
+
+export default RadioCard;

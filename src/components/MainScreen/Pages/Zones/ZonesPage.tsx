@@ -5,7 +5,7 @@ import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 
 const Zones = () => {
   const [selectedButton, setSelectedButton] = useState<string>("по зонам");
-  const { radio, rs485 } = useTypedSelector((state) => state.devices);
+  const { radio, rs485 } = useTypedSelector(state => state.devices);
   const handleButtonClick = (buttonName: string) => {
     setSelectedButton(buttonName);
   };
@@ -14,13 +14,13 @@ const Zones = () => {
       <div className="navigation-header">
         <div className="navigation-buttons">
           <button
-            className={`nav-button ${selectedButton === "по разделам" ? "selected" : ""}`}
+            className={`zones-page-nav-button  ${selectedButton === "по разделам" ? "selected" : ""}`}
             onClick={() => handleButtonClick("по разделам")}
           >
             по разделам
           </button>
           <button
-            className={`nav-button ${selectedButton === "по зонам" ? "selected" : ""}`}
+            className={`zones-page-nav-button ${selectedButton === "по зонам" ? "selected" : ""}`}
             onClick={() => handleButtonClick("по зонам")}
           >
             по зонам
@@ -30,23 +30,23 @@ const Zones = () => {
       {Array(192)
         .fill(1)
         .map((el, i) => (
-          <div className="setting-rs-card-one">
-            <div className="setting-rs-card-inside">
+          <div className="zone-page-one" style={{ marginLeft: "7px", marginRight: "7px" }}>
+            <div className="zone-page-inside">
               <div
                 style={{
                   justifyContent: "space-between",
                 }}
-                className="setting-rs-card-block"
+                className="zone-page-block "
               >
                 <div
                   style={{
                     display: "flex",
                   }}
                 >
-                  <div className="setting-rs-card-block-row">
+                  <div className="zone-page-block-row">
                     <span>Зона</span> <span>{i + 1}</span>
                   </div>
-                  <div className="setting-rs-card-block-row">
+                  <div className="zone-page-block-row">
                     <span>Разд.</span>
                     <span>1</span>
                   </div>
@@ -56,13 +56,13 @@ const Zones = () => {
                   <span>Вх. дверь</span>
                 </div>
               </div>
-              <div className="setting-rs-card-block">
-                <span style={{ fontSize: "19px" }}>
+              <div className="zone-page-block">
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
                   {i % 3 ? "Охранная с зад.(Проходная) с контр. взлома" : "Охранная"}
                 </span>
               </div>
               {i % 3 ? (
-                <div className="setting-rs-card-block">
+                <div className="zone-page-block">
                   <div className="setting-rs-card-block-row">
                     <span>Задержка вход</span>
                     <span>{i + 28}</span>

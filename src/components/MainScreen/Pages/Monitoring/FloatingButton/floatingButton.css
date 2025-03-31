@@ -1,23 +1,32 @@
 /* Основной контейнер для кнопки */
 .floating-button {
-  position: fixed; /* Фиксированное позиционирование */
-  bottom: 45px; /* Отступ от нижнего края */
-  right: 45px; /* Отступ от правого края */
-  width: 18vw;
-  height: 18vw;
-  max-width: 80px; /* Максимальный размер */
-  max-height: 80px; /* Максимальный размер */
-  border-radius: 24%; /* Делаем кнопку круглой */
-  background-color: #5c8fd5; /* Цвет фона */
-  border: none; /* Убираем границу */
-  color: white; /* Цвет текста/иконки */
-  font-size: 26px; /* Размер текста/иконки */
-  cursor: pointer; /* Курсор в виде указателя */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Тень для эффекта "плавающей" кнопки */
+  position: fixed;
+  /* Фиксированное позиционирование */
+  bottom: 5%;
+  /* Отступ от нижнего края */
+  right: 10%;
+  /* Отступ от правого края */
+  width: clamp(50px, 16vw, 70px);
+  height: clamp(50px, 16vw, 70px);
+  border-radius: 24%;
+  /* Делаем кнопку круглой */
+  background-color: #5c8fd5;
+  /* Цвет фона */
+  border: none;
+  /* Убираем границу */
+  color: white;
+  /* Цвет текста/иконки */
+  font-size: 26px;
+  /* Размер текста/иконки */
+  cursor: pointer;
+  /* Курсор в виде указателя */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  /* Тень для эффекта "плавающей" кнопки */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease; /* Плавное изменение цвета */
+  transition: all 0.2s ease;
+  /* Плавное изменение цвета */
 }
 
 /* Стили для знака плюса */
@@ -31,7 +40,8 @@
 .plus-icon::after {
   content: '';
   position: absolute;
-  background-color: white; /* Цвет плюса */
+  background-color: white;
+  /* Цвет плюса */
 }
 
 .plus-icon::before {
@@ -52,21 +62,29 @@
 
 /* Эффект при наведении */
 .floating-button:hover {
-  background-color: #5c8fd5;  /* Изменение цвета при наведении */
+  background-color: #5c8fd5;
+  /* Изменение цвета при наведении */
 }
+
 @keyframes buttonClick {
   0% {
-    background-color: #5c8fd5; 
+    background-color: #5c8fd5;
   }
+
   50% {
     background-color: #3700b3;
   }
+
   100% {
     background-color: #6200ea;
   }
 }
+
 .floating-button:active {
-  transform: scale(0.9); /* Уменьшение кнопки */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Уменьшение тени */
-   animation: buttonClick 0.3s ease; /* Применяем анимацию */
+  transform: scale(0.9);
+  /* Уменьшение кнопки */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Уменьшение тени */
+  animation: buttonClick 0.3s ease;
+  /* Применяем анимацию */
 }

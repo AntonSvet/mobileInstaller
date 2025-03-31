@@ -9,7 +9,7 @@ export const radioDevice: IRadioDevices[] = [
   {
     id: 0,
     name: "МК Ю-5130",
-    fullName: "Магнито-контактный извещатель",
+    fullName: "МАГНИТО-КОНТАКТНЫЙ ИЗВЕЩАТЕЛЬ",//тестируем капсом
     number: 1,
     zone: [3, null],
     section: [1, 2],

@@ -1,8 +1,8 @@
 import device2084 from "../../../../img/device/s_fonom_2084.png";
 import { useEffect, useRef, useState } from "react";
 import NavigationButtons from "./NavigationButtons/NavigationButtons";
-import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
-import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
+// import Battery20SharpIcon from "@mui/icons-material/Battery20Sharp";
+// import SignalCellular2BarIcon from "@mui/icons-material/SignalCellular2Bar";
 import FloatingButton from "./FloatingButton/FloatingButton";
 import ImageLoader from "../../../../common/ImageLoader/ImageLoader";
 import useImageLoader from "../../../../hooks/useImageLoader";
@@ -16,6 +16,8 @@ import { useTypedDispatch } from "../../../../hooks/useTypedDispatch";
 import { devicesActions } from "../../../../redux/reducers/devices/devicesReducer";
 import { IRadioDevices } from "../../../../redux/reducers/devices/devices.types";
 import "./monitoringPage.css";
+import { GiBattery50 } from "react-icons/gi";
+import { FaSignal } from "react-icons/fa6";
 const MonitoringPage = () => {
   const devicesStore = useTypedSelector((state) => state.devices);
   const addedDevice = useTypedSelector((state) => state.devices.addedDevice);
@@ -41,55 +43,31 @@ const MonitoringPage = () => {
           <ImageLoader progress={progress} title={"Загрузка"} />;
         </div>
       )}
-      <div
+      <div className="container"
         ref={headerRef}
         style={{
-          display: "flex",
-          flexDirection: "column",
-          position: "fixed",
-          top: 48,
-          left: 0,
-          zIndex: 1000,
-          width: "100%",
-          background: " var(--background-header)",
           visibility: isLoading ? "hidden" : "visible",
         }}
       >
         <div className="device-grid-container">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              background: " var(--background-header)",
-              marginLeft: "14px",
-            }}
-          >
-            <span>Sim 1</span>
-            <div style={{ margin: "0px 3px 0px 3px" }}>
-              <SignalCellular2BarIcon />
+          <div className="device-grid-container-device-info">
+            <div><span>Sim 1</span> </div>
+            <div>
+              <FaSignal className="icons" />
             </div>
-
-            <Battery20SharpIcon />
+            <div>
+              <GiBattery50 className="icons" />
+            </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              background: " var(--background-header)",
-              marginLeft: "5px",
-            }}
-          >
-            <img style={{ maxWidth: "110px", paddingRight: "20px" }} width={"40%"} src={device2084} alt="logo" />
-
+          <div className="device-grid-container-device-image">
+            <img width={"40%"} src={device2084} alt="logo" />
             <div>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <span style={{ color: "var( --text-color)" }}>Провод. Зона 1, рзд. 1</span>
                 <div
                   style={{
-                    width: "15px",
-                    height: "15px",
+                    width: "clamp(14px,3vw,18px)",
+                    height: "clamp(14px,3vw,18px)",
                     background: "green",
                     borderRadius: "20px",
                     marginLeft: "10px",
@@ -100,8 +78,8 @@ const MonitoringPage = () => {
                 <span style={{ color: "var( --text-color)" }}>Провод. Зона 2, рзд. 1</span>
                 <div
                   style={{
-                    width: "15px",
-                    height: "15px",
+                    width: "clamp(14px,3vw,18px)",
+                    height: "clamp(14px,3vw,18px)",
                     background: "red",
                     borderRadius: "20px",
                     marginLeft: "10px",
@@ -110,7 +88,7 @@ const MonitoringPage = () => {
               </div>
             </div>
           </div>
-          <div style={{ display: "flex", marginLeft: "14px" }}>
+          <div style={{ display: "flex", marginLeft: "9px" }}>
             <span>ID: 0000-0099-6CAC</span>
           </div>
         </div>
